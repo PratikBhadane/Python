@@ -1,0 +1,95 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="vwProductTransactions" path="/shared/CE_tutorials/Priviledges/Privileges_Demoette/L2_Canonical/vwProductTransactions" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
+  <columns>
+    <column name="prod_id" nullable="true">
+      <datatype type="STRING" maxLength="32768"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="prod_desc" nullable="true">
+      <datatype type="STRING" maxLength="32768"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="prod_available" nullable="true">
+      <datatype type="STRING" maxLength="32768"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="tran_id" nullable="true">
+      <datatype type="STRING" maxLength="32768"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="cust_id" nullable="true">
+      <datatype type="STRING" maxLength="32768"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="tran_timestamp" nullable="true">
+      <datatype type="STRING" maxLength="32768"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+  </columns>
+  <indexes></indexes>
+  <foreignKeys></foreignKeys>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/shared/CE_tutorials/Priviledges/Privileges_Demoette/L1_Physical/vwProducts" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="prod_id">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+      <element name="prod_desc">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+      <element name="prod_available">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/CE_tutorials/Priviledges/Privileges_Demoette/L1_Physical/vwTransactions" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="tran_id">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+      <element name="cust_id">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+      <element name="prod_id">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+      <element name="tran_timestamp">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="SQL" type="STRING">SELECT 
+    vwProducts.prod_id, 
+    vwProducts.prod_desc, 
+    vwProducts.prod_available, 
+    vwTransactions.tran_id, 
+    vwTransactions.cust_id, 
+    vwTransactions.tran_timestamp
+FROM      
+    /shared/CE_tutorials/Priviledges/Privileges_Demoette/L1_Physical/vwProducts vwProducts INNER JOIN 
+        /shared/CE_tutorials/Priviledges/Privileges_Demoette/L1_Physical/vwTransactions vwTransactions
+    ON vwProducts.prod_id = vwTransactions.prod_id</attribute>
+  <attribute name="creationDate" type="LONG">1411570399092</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1411570492644</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="BYTE_ARRAY">EIEJBAAAAAMQUQYBAAoAdgB3AFAAcgBvAGQAdQBjAHQAcwYCAAoAdgB3AFAAcgBvAGQAdQBjAHQAcwML/////wMK/////wMM/////wsRAAYABgBzAGgAYQByAGUAZAAMAEMARQBfAHQAdQB0AG8AcgBpAGEAbABzAAsAUAByAGkAdgBpAGwAZQBkAGcAZQBzABMAUAByAGkAdgBpAGwAZQBnAGUAcwBfAEQAZQBtAG8AZQB0AHQAZQALAEwAMQBfAFAAaAB5AHMAaQBjAGEAbAAKAHYAdwBQAHIAbwBkAHUAYwB0AHP//xBRBgEADgB2AHcAVAByAGEAbgBzAGEAYwB0AGkAbwBuAHMGAgAOAHYAdwBUAHIAYQBuAHMAYQBjAHQAaQBvAG4AcwML/////wMK/////wMM/////wsRAAYABgBzAGgAYQByAGUAZAAMAEMARQBfAHQAdQB0AG8AcgBpAGEAbABzAAsAUAByAGkAdgBpAGwAZQBkAGcAZQBzABMAUAByAGkAdgBpAGwAZQBnAGUAcwBfAEQAZQBtAG8AZQB0AHQAZQALAEwAMQBfAFAAaAB5AHMAaQBjAGEAbAAOAHYAdwBUAHIAYQBuAHMAYQBjAHQAaQBvAG4Ac///EFMGCQAFAEkATgBOAEUAUgMNAAAAAAMOAAAAAQgPEGIGBwABAD0BBQAIAxBBBgEABwBwAHIAbwBkAF8AaQBkBgIAAAYD//8GBP//Awr/////AwsAAAAA//8IBBBBBgEABwBwAHIAbwBkAF8AaQBkBgIAAAYD//8GBP//Awr/////AwsAAAAB////////AwUAAAABCAIQMQYB//8BAgEBBgABAwABBAABBQADBwAAAAAHCQAAAAEAAAACCQoAAAAGEEEGAQAHAHAAcgBvAGQAXwBpAGQGAgAABgP//wYE//8DCv////8IDBAbAxIAAAEOBAQAAAAAAACAAAETAf//AwsAAAAA//8QQQYBAAkAcAByAG8AZABfAGQAZQBzAGMGAgAABgP//wYE//8DCv////8IDBAbAxIAAAEOBAQAAAAAAACAAAETAf//AwsAAAAA//8QQQYBAA4AcAByAG8AZABfAGEAdgBhAGkAbABhAGIAbABlBgIAAAYD//8GBP//Awr/////CAwQGwMSAAABDgQEAAAAAAAAgAABEwH//wMLAAAAAP//EEEGAQAHAHQAcgBhAG4AXwBpAGQGAgAABgP//wYE//8DCv////8IDBAbAxIAAAEOBAQAAAAAAACAAAETAf//AwsAAAAB//8QQQYBAAcAYwB1AHMAdABfAGkAZAYCAAAGA///BgT//wMK/////wgMEBsDEgAAAQ4EBAAAAAAAAIAAARMB//8DCwAAAAH//xBBBgEADgB0AHIAYQBuAF8AdABpAG0AZQBzAHQAYQBtAHAGAgAABgP//wYE//8DCv////8IDBAbAxIAAAEOBAQAAAAAAACAAAETAf//AwsAAAAB/////wkGAAAAAxCCAwoAAADgAwsAAAB/AwwAAADIAw0AAABS//8QggMKAAACpgMLAAABFQMMAAAAyAMNAAAAYv//EIIDCv////8DC/////8DDP////8DDf///////wgDEHEDAQAAAAsDAgAAADIJAwAAAiYQdAMGAAAAAP//EHIGBP////8QcwMFAAAAAP//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0AwYAAAAB//8QcgYE/////xBzAwUAAAAA//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAAAL//xByBgT/////EHMDBQAAAAD//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAAA///EHIGBP////8QcwMFAAAAAf//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0AwYAAAAE//8QcgYE/////xBzAwUAAAAB//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQGCQAWAHYAdwBUAHIAYQBuAHMAYQBjAHQAaQBvAG4AcwAuAHAAcgBvAGQAXwBpAGT//xByBgT/////EHMDBQAAAAH//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAABf//EHIGBP////8QcwMFAAAAAf//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv///////w==</attribute>
+</metadata>

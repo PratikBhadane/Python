@@ -1,0 +1,33 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="TemperaturesByCityProducer" path="/shared/CE_tutorials/Soap_Data_Source/SOAP_Data_Source/WebServiceProducer/TemperaturesByCityProducer" type="DATA_SOURCE" subtype="NONE" changeToken="0">
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <attribute name="OAuthConfig" type="NULL"/>
+  <attribute name="blankAsNull" type="BOOLEAN">true</attribute>
+  <attribute name="blankColumnType" type="STRING">Varchar</attribute>
+  <attribute name="cacheStatusAndTrackingDS" type="STRING"/>
+  <attribute name="cacheStatusTable" type="STRING"/>
+  <attribute name="cacheTrackingTable" type="STRING"/>
+  <attribute name="charset" type="STRING">iso-8859-1</attribute>
+  <attribute name="creationDate" type="LONG">1417813359509</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="dataRange" type="STRING">A1</attribute>
+  <attribute name="dataWysiwyg" type="BOOLEAN">true</attribute>
+  <attribute name="driverName" type="STRING">Microsoft Excel (non-ODBC)</attribute>
+  <attribute name="filters" type="STRING">*.xls,*.xlsx</attribute>
+  <attribute name="firstRowCategory" type="BOOLEAN">true</attribute>
+  <attribute name="hasHeaders" type="BOOLEAN">true</attribute>
+  <attribute name="ignoreInvalidateDataFetch" type="BOOLEAN">true</attribute>
+  <attribute name="isPassThrough" type="STRING">Disabled</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1612875781965</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="local" type="BOOLEAN">true</attribute>
+  <attribute name="name" type="STRING">TemperaturesByCityProducer</attribute>
+  <attribute name="persistPassword" type="BOOLEAN">true</attribute>
+  <attribute name="root" type="STRING">C:\Program Files\TIBCO\TDV Server 8.3\New Folder\Resources</attribute>
+  <attribute name="type" type="STRING">MsExcel(POI)</attribute>
+</metadata>

@@ -1,0 +1,63 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="ts_debug" path="/shared/CE_tutorials/MultiTableCaching/Database/Postgres1/pg_catalog/ts_debug" type="PROCEDURE" subtype="DATABASE_PROCEDURE" changeToken="0">
+  <parameters>
+    <parameter name="config" direction="IN" nullable="unknown">
+      <datatype name="regconfig" extendedName="regconfig" subType="DATASOURCE_TYPE" type="OTHER"/>
+    </parameter>
+    <parameter name="document" direction="IN" nullable="unknown">
+      <datatype name="text" extendedName="text" subType="DATASOURCE_TYPE" type="CLOB" maxLength="4294967295"/>
+    </parameter>
+    <parameter name="alias" direction="OUT" nullable="unknown">
+      <datatype name="text" extendedName="text" subType="DATASOURCE_TYPE" type="CLOB" maxLength="4294967295"/>
+    </parameter>
+    <parameter name="description" direction="OUT" nullable="unknown">
+      <datatype name="text" extendedName="text" subType="DATASOURCE_TYPE" type="CLOB" maxLength="4294967295"/>
+    </parameter>
+    <parameter name="token" direction="OUT" nullable="unknown">
+      <datatype name="text" extendedName="text" subType="DATASOURCE_TYPE" type="CLOB" maxLength="4294967295"/>
+    </parameter>
+    <parameter name="dictionaries" direction="OUT" nullable="unknown">
+      <datatype name="_regdictionary" extendedName="_regdictionary" subType="DATASOURCE_TYPE" type="OTHER"/>
+    </parameter>
+    <parameter name="dictionary" direction="OUT" nullable="unknown">
+      <datatype name="regdictionary" extendedName="regdictionary" subType="DATASOURCE_TYPE" type="OTHER"/>
+    </parameter>
+    <parameter name="lexemes" direction="OUT" nullable="unknown">
+      <datatype name="_text" extendedName="_text" subType="DATASOURCE_TYPE" type="OTHER"/>
+    </parameter>
+    <parameter name="document" direction="IN" nullable="unknown">
+      <datatype name="text" extendedName="text" subType="DATASOURCE_TYPE" type="CLOB" maxLength="4294967295"/>
+    </parameter>
+    <parameter name="alias" direction="OUT" nullable="unknown">
+      <datatype name="text" extendedName="text" subType="DATASOURCE_TYPE" type="CLOB" maxLength="4294967295"/>
+    </parameter>
+    <parameter name="description" direction="OUT" nullable="unknown">
+      <datatype name="text" extendedName="text" subType="DATASOURCE_TYPE" type="CLOB" maxLength="4294967295"/>
+    </parameter>
+    <parameter name="token" direction="OUT" nullable="unknown">
+      <datatype name="text" extendedName="text" subType="DATASOURCE_TYPE" type="CLOB" maxLength="4294967295"/>
+    </parameter>
+    <parameter name="dictionaries" direction="OUT" nullable="unknown">
+      <datatype name="_regdictionary" extendedName="_regdictionary" subType="DATASOURCE_TYPE" type="OTHER"/>
+    </parameter>
+    <parameter name="dictionary" direction="OUT" nullable="unknown">
+      <datatype name="regdictionary" extendedName="regdictionary" subType="DATASOURCE_TYPE" type="OTHER"/>
+    </parameter>
+    <parameter name="lexemes" direction="OUT" nullable="unknown">
+      <datatype name="_text" extendedName="_text" subType="DATASOURCE_TYPE" type="OTHER"/>
+    </parameter>
+  </parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <attribute name="creationDate" type="LONG">1613475787544</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1613475787544</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1613475787544</attribute>
+</metadata>

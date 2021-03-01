@@ -1,0 +1,127 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="ServerStartSuccessTrigger" path="/shared/CE_tutorials/Triggers/Triggers/SystemEvent/ServerStartSuccessTrigger" type="TRIGGER" subtype="NONE" changeToken="0">
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/shared/CE_tutorials/Triggers/Triggers/SystemEvent/CallsGetEnvironment" type="PROCEDURE">
+    <datatype name="Tree" type="TREE" refId="257"></datatype>
+  </dependency>
+  <attribute name="actionProperties" type="MAP">
+    <item>
+      <key type="STRING">PATH</key>
+      <value type="STRING">/shared/CE_tutorials/Triggers/Triggers/SystemEvent/CallsGetEnvironment</value>
+    </item>
+    <item>
+      <key type="STRING">CC</key>
+      <value type="NULL"/>
+    </item>
+    <item>
+      <key type="STRING">SKIP_IF_NO_RESULTS</key>
+      <value type="BOOLEAN">false</value>
+    </item>
+    <item>
+      <key type="STRING">BCC</key>
+      <value type="NULL"/>
+    </item>
+    <item>
+      <key type="STRING">SUMMARY</key>
+      <value type="BOOLEAN">true</value>
+    </item>
+    <item>
+      <key type="STRING">SUBJECT</key>
+      <value type="STRING">CIS Server Start Successful</value>
+    </item>
+    <item>
+      <key type="STRING">PARAMETERS</key>
+      <value type="NULL"/>
+    </item>
+    <item>
+      <key type="STRING">TO</key>
+      <value type="STRING">pbhadane@tibco.com</value>
+    </item>
+    <item>
+      <key type="STRING">CONTENT</key>
+      <value type="STRING">Please note that this email was triggered by a successful start of CIS Server.</value>
+    </item>
+    <item>
+      <key type="STRING">TYPE</key>
+      <value type="STRING">PROCEDURE</value>
+    </item>
+    <item>
+      <key type="STRING">REPLYTO</key>
+      <value type="NULL"/>
+    </item>
+  </attribute>
+  <attribute name="actionType" type="STRING">EMAIL</attribute>
+  <attribute name="conditionProperties" type="MAP">
+    <item>
+      <key type="STRING">EVENT_NAME</key>
+      <value type="STRING">ServerStart</value>
+    </item>
+  </attribute>
+  <attribute name="conditionSchedule" type="MAP">
+    <item>
+      <key type="STRING">startTime</key>
+      <value type="LONG">1433364546127</value>
+    </item>
+    <item>
+      <key type="STRING">recurringDay</key>
+      <value type="INTEGER">-1</value>
+    </item>
+    <item>
+      <key type="STRING">lastScheduledTime</key>
+      <value type="LONG">0</value>
+    </item>
+    <item>
+      <key type="STRING">isCluster</key>
+      <value type="BOOLEAN">true</value>
+    </item>
+    <item>
+      <key type="STRING">count</key>
+      <value type="INTEGER">0</value>
+    </item>
+    <item>
+      <key type="STRING">interval</key>
+      <value type="INTEGER">0</value>
+    </item>
+    <item>
+      <key type="STRING">fromTimeInADay</key>
+      <value type="LONG">-1</value>
+    </item>
+    <item>
+      <key type="STRING">period</key>
+      <value type="INTEGER">0</value>
+    </item>
+    <item>
+      <key type="STRING">endTime</key>
+      <value type="LONG">0</value>
+    </item>
+    <item>
+      <key type="STRING">endTimeInADay</key>
+      <value type="LONG">-1</value>
+    </item>
+    <item>
+      <key type="STRING">lastRunTime</key>
+      <value type="LONG">0</value>
+    </item>
+    <item>
+      <key type="STRING">mode</key>
+      <value type="STRING">NONE</value>
+    </item>
+  </attribute>
+  <attribute name="conditionType" type="STRING">SYSTEM_EVENT</attribute>
+  <attribute name="creationDate" type="LONG">1433364545808</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="enabled" type="BOOLEAN">true</attribute>
+  <attribute name="impactLevel" type="INTEGER">0</attribute>
+  <attribute name="impactMessage" type="NULL"/>
+  <attribute name="lastModifiedDate" type="LONG">1611752677004</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="maxEventsQueued" type="INTEGER">1</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1433364545808</attribute>
+</metadata>

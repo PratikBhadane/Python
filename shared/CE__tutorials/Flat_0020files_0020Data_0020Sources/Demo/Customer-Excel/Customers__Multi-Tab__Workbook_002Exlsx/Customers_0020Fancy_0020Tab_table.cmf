@@ -1,0 +1,47 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="Customers Fancy Tab" path="/shared/CE_tutorials/Flat files Data Sources/Demo/Customer-Excel/Customers_Multi-Tab_Workbook.xlsx/Customers Fancy Tab" type="TABLE" subtype="-3916" changeToken="0" tableType="NONE">
+  <columns>
+    <column name="STATE" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="32767"/>
+      <attribute name="mandatory" type="BOOLEAN">false</attribute>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="NUMBER_OF_CUSTOMERS" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="32767"/>
+      <attribute name="mandatory" type="BOOLEAN">false</attribute>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+  </columns>
+  <indexes></indexes>
+  <foreignKeys></foreignKeys>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <attribute name="blankAsNull" type="BOOLEAN">true</attribute>
+  <attribute name="blankColumnType" type="STRING">Varchar</attribute>
+  <attribute name="c:0:mandatory" type="BOOLEAN">false</attribute>
+  <attribute name="c:1:mandatory" type="BOOLEAN">false</attribute>
+  <attribute name="charset" type="STRING">iso-8859-1</attribute>
+  <attribute name="creationDate" type="LONG">1611825613592</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="dataRange" type="STRING">A1:B100</attribute>
+  <attribute name="dataWysiwyg" type="BOOLEAN">true</attribute>
+  <attribute name="firstRowCategory" type="BOOLEAN">true</attribute>
+  <attribute name="hasHeaders" type="BOOLEAN">true</attribute>
+  <attribute name="ignoreInvalidateDataFetch" type="BOOLEAN">true</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1611825613592</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="path" type="STRING">Customers_Multi-Tab_Workbook.xlsx</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1611825613592</attribute>
+  <attribute name="sheetIndex" type="INTEGER">1</attribute>
+  <attribute name="sheetName" type="STRING">Customers Fancy Tab</attribute>
+</metadata>

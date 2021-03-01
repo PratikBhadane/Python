@@ -1,0 +1,79 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="vwTempsFiltered" path="/shared/CE_tutorials/Soap_Data_Source/SOAP_Data_Source/AugmentedDataWarehouse/WebServiceAugmentations/L2_WrapAsView/vwTempsFiltered" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
+  <columns>
+    <column name="City" nullable="true">
+      <datatype type="STRING" maxLength="255"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="Date" nullable="true">
+      <datatype type="DATE"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="HighTemp" nullable="true">
+      <datatype type="DECIMAL" maxDigits="32" maxFractionalDigits="2"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="MinSelectableTemp" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+  </columns>
+  <indexes></indexes>
+  <foreignKeys></foreignKeys>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/shared/CE_tutorials/Soap_Data_Source/SOAP_Data_Source/AugmentedDataWarehouse/WebServiceAugmentations/L1_TransformToCursor/xformGetTempsFilteredToCursor" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="258">
+      <element name="WrapperedTemperaturesbycityfiltered" direction="IN" nullable="false">
+        <datatype name="WrapperedTemperaturesbycityfiltered" namespace="http://tempuri.org/" referenceDefinitionSet="/shared/CE_tutorials/Soap_Data_Source/SOAP_Data_Source/AugmentedDataWarehouse/WebServiceAugmentations/TemperatureWebService/Definitions" referenceType="{http://tempuri.org/}WrapperedTemperaturesbycityfiltered" subType="ELEMENT_DECL" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="ELEMENT" componentName="{http://tempuri.org/}WrapperedTemperaturesbycityfiltered">
+          <schemaDatatype>
+            <datatype name="WrapperedTemperaturesbycityfiltered" type="TREE" refId="257"></datatype>
+          </schemaDatatype>
+        </datatype>
+      </element>
+      <element name="TempsByCityFiltered" direction="OUT" nullable="false">
+        <datatype type="TABLE" refId="256">
+          <element name="City" nullable="false">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="Date" nullable="false">
+            <datatype type="DATE"/>
+          </element>
+          <element name="HighTemp" nullable="false">
+            <datatype type="DECIMAL" maxDigits="32" maxFractionalDigits="2"/>
+          </element>
+        </datatype>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="SQL" type="STRING">SELECT 
+    xformGetTempsFilteredToCursor.City, 
+    xformGetTempsFilteredToCursor.&quot;Date&quot;, 
+    xformGetTempsFilteredToCursor.HighTemp, 
+&#x9;{ DECLARE inMinTemp INTEGER DEFAULT 60 } MinSelectableTemp
+FROM      
+    /shared/CE_tutorials/Soap_Data_Source/SOAP_Data_Source/AugmentedDataWarehouse/WebServiceAugmentations/L1_TransformToCursor/xformGetTempsFilteredToCursor(&apos;&lt;ns:WrapperedTemperaturesbycityfiltered xmlns:ns=&quot;http://tempuri.org/&quot;&gt;&lt;ns:TemperaturesByCityFilteredMintemp&gt;0&lt;/ns:TemperaturesByCityFilteredMintemp&gt;&lt;/ns:WrapperedTemperaturesbycityfiltered&gt;&apos;) xformGetTempsFilteredToCursor
+WHERE
+&#x9;HighTemp &gt; inMinTemp</attribute>
+  <attribute name="creationDate" type="LONG">1426695876618</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1426696060978</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1426695876618</attribute>
+</metadata>

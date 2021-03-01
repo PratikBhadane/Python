@@ -1,0 +1,127 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="TriggeredProc" path="/shared/CE_tutorials/Triggers/Triggers/UserDefinedEvent/TriggeredProc" type="PROCEDURE" subtype="SQL_SCRIPT_PROCEDURE" changeToken="0">
+  <parameters></parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/lib/util/GetEnvironment" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="258">
+      <element name="variableName" direction="IN">
+        <datatype referenceDefinitionSet="/lib/util/System" referenceType="PropertyName" type="STRING" maxLength="255"/>
+      </element>
+      <element name="result" direction="OUT">
+        <datatype referenceDefinitionSet="/lib/util/System" referenceType="PropertyValue" type="STRING" maxLength="4096"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/services/databases/system/DUAL" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="DUMMY">
+        <datatype type="STRING" minLength="1" maxLength="1"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/CE_tutorials/Triggers/Triggers/UserDefinedEvent/Trigger_Result/Demoette_Trigger_WriteMe.txt" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="COMMENT">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+      <element name=" WRITE_TIME">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+      <element name=" EVENT_NAME">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+      <element name=" EVENT_VALUE">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/system/datasources/system/DUAL" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="DUMMY">
+        <datatype type="STRING" minLength="1" maxLength="1"/>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="Script" type="STRING">PROCEDURE TriggeredProc()
+BEGIN
+--
+-- This procedure is triggered by a user-defined event.
+-- It writes information about the event to a csv file.
+--
+-- These declarations hold information about the event
+--
+&#x9;DECLARE tpath VARCHAR(4096);
+&#x9;DECLARE tname VARCHAR(4096);
+&#x9;DECLARE ttype VARCHAR(4096);
+&#x9;DECLARE tvalue VARCHAR(4096);
+--
+-- Calls to GetEnvironment populate the declarations above.
+--
+&#x9;CALL GetEnvironment( &apos;TRIGGER_PATH&apos;, tpath);
+&#x9;CALL GetEnvironment( &apos;TRIGGER_EVENT_NAME&apos;, tname);
+&#x9;CALL GetEnvironment( &apos;TRIGGER_EVENT_TYPE&apos;, ttype);
+&#x9;CALL GetEnvironment( &apos;TRIGGER_EVENT_VALUE&apos;, tvalue);
+--
+-- Before writing to the csv file, get rid of any old data (column headers will not be deleted)
+--
+&#x9;DELETE FROM /shared/CE_tutorials/Triggers/Triggers/UserDefinedEvent/Trigger_Result/&quot;Demoette_Trigger_WriteMe.txt&quot;;
+--
+-- Now write information about the latest user-defined event to the csv file.
+-- You can then view this information from the data source in CIS.
+--
+&#x9;INSERT INTO /shared/CE_tutorials/Triggers/Triggers/UserDefinedEvent/Trigger_Result/&quot;Demoette_Trigger_WriteMe.txt&quot;
+&#x9;&#x9;SELECT&#x9;&apos;Procedure TriggeredProc was started by a User-Defined Event Trigger&apos;, 
+&#x9;&#x9;&#x9;&#x9;&apos;Data written at &apos; || CURRENT_TIMESTAMP(0), 
+&#x9;&#x9;&#x9;&#x9;tname, 
+&#x9;&#x9;&#x9;&#x9;tvalue;
+END</attribute>
+  <attribute name="creationDate" type="LONG">1435156438704</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1435158936633</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="native_only" type="STRING">false</attribute>
+  <attribute name="references" type="MAP">
+    <item>
+      <key type="STRING">7/16</key>
+      <value type="STRING_ARRAY">
+        <item>lib</item>
+        <item>util</item>
+        <item>GetEnvironment</item>
+      </value>
+    </item>
+    <item>
+      <key type="STRING">7/18</key>
+      <value type="STRING_ARRAY">
+        <item>lib</item>
+        <item>util</item>
+        <item>GetEnvironment</item>
+      </value>
+    </item>
+    <item>
+      <key type="STRING">7/17</key>
+      <value type="STRING_ARRAY">
+        <item>lib</item>
+        <item>util</item>
+        <item>GetEnvironment</item>
+      </value>
+    </item>
+    <item>
+      <key type="STRING">7/19</key>
+      <value type="STRING_ARRAY">
+        <item>lib</item>
+        <item>util</item>
+        <item>GetEnvironment</item>
+      </value>
+    </item>
+  </attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1435156438704</attribute>
+</metadata>

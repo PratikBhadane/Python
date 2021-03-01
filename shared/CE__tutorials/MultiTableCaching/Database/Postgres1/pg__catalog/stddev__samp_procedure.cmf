@@ -1,0 +1,54 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="stddev_samp" path="/shared/CE_tutorials/MultiTableCaching/Database/Postgres1/pg_catalog/stddev_samp" type="PROCEDURE" subtype="DATABASE_PROCEDURE" changeToken="0">
+  <parameters>
+    <parameter name="returnValue" direction="RETURN" nullable="unknown">
+      <datatype name="numeric" extendedName="numeric" subType="DATASOURCE_TYPE" type="DECIMAL" maxDigits="38" minFractionalDigits="10" maxFractionalDigits="10"/>
+    </parameter>
+    <parameter name="$1" direction="IN" nullable="unknown">
+      <datatype name="int8" extendedName="int8" subType="DATASOURCE_TYPE" type="INTEGER"/>
+    </parameter>
+    <parameter name="returnValue" direction="RETURN" nullable="unknown">
+      <datatype name="numeric" extendedName="numeric" subType="DATASOURCE_TYPE" type="DECIMAL" maxDigits="38" minFractionalDigits="10" maxFractionalDigits="10"/>
+    </parameter>
+    <parameter name="$1" direction="IN" nullable="unknown">
+      <datatype name="int4" extendedName="int4" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="returnValue" direction="RETURN" nullable="unknown">
+      <datatype name="numeric" extendedName="numeric" subType="DATASOURCE_TYPE" type="DECIMAL" maxDigits="38" minFractionalDigits="10" maxFractionalDigits="10"/>
+    </parameter>
+    <parameter name="$1" direction="IN" nullable="unknown">
+      <datatype name="int2" extendedName="int2" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-32768" maxValue="32767"/>
+    </parameter>
+    <parameter name="returnValue" direction="RETURN" nullable="unknown">
+      <datatype name="float8" extendedName="float8" subType="DATASOURCE_TYPE" type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+    </parameter>
+    <parameter name="$1" direction="IN" nullable="unknown">
+      <datatype name="float4" extendedName="float4" subType="DATASOURCE_TYPE" type="FLOAT" minValue="1.1754943508222875E-38" maxValue="3.4028234663852886E38"/>
+    </parameter>
+    <parameter name="returnValue" direction="RETURN" nullable="unknown">
+      <datatype name="float8" extendedName="float8" subType="DATASOURCE_TYPE" type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+    </parameter>
+    <parameter name="$1" direction="IN" nullable="unknown">
+      <datatype name="float8" extendedName="float8" subType="DATASOURCE_TYPE" type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+    </parameter>
+    <parameter name="returnValue" direction="RETURN" nullable="unknown">
+      <datatype name="numeric" extendedName="numeric" subType="DATASOURCE_TYPE" type="DECIMAL" maxDigits="38" minFractionalDigits="10" maxFractionalDigits="10"/>
+    </parameter>
+    <parameter name="$1" direction="IN" nullable="unknown">
+      <datatype name="numeric" extendedName="numeric" subType="DATASOURCE_TYPE" type="DECIMAL" maxDigits="38" minFractionalDigits="10" maxFractionalDigits="10"/>
+    </parameter>
+  </parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <attribute name="creationDate" type="LONG">1613475787454</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1613475787454</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1613475787454</attribute>
+</metadata>

@@ -1,0 +1,60 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="pg_stat_get_progress_info" path="/shared/CE_tutorials/MultiTableCaching/Database/Postgres1/pg_catalog/pg_stat_get_progress_info" type="PROCEDURE" subtype="DATABASE_PROCEDURE" changeToken="0">
+  <parameters>
+    <parameter name="cmdtype" direction="IN" nullable="unknown">
+      <datatype name="text" extendedName="text" subType="DATASOURCE_TYPE" type="CLOB" maxLength="4294967295"/>
+    </parameter>
+    <parameter name="pid" direction="OUT" nullable="unknown">
+      <datatype name="int4" extendedName="int4" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="datid" direction="OUT" nullable="unknown">
+      <datatype name="oid" extendedName="oid" subType="DATASOURCE_TYPE" type="BLOB" maxLength="4294967295"/>
+    </parameter>
+    <parameter name="relid" direction="OUT" nullable="unknown">
+      <datatype name="oid" extendedName="oid" subType="DATASOURCE_TYPE" type="BLOB" maxLength="4294967295"/>
+    </parameter>
+    <parameter name="param1" direction="OUT" nullable="unknown">
+      <datatype name="int8" extendedName="int8" subType="DATASOURCE_TYPE" type="INTEGER"/>
+    </parameter>
+    <parameter name="param2" direction="OUT" nullable="unknown">
+      <datatype name="int8" extendedName="int8" subType="DATASOURCE_TYPE" type="INTEGER"/>
+    </parameter>
+    <parameter name="param3" direction="OUT" nullable="unknown">
+      <datatype name="int8" extendedName="int8" subType="DATASOURCE_TYPE" type="INTEGER"/>
+    </parameter>
+    <parameter name="param4" direction="OUT" nullable="unknown">
+      <datatype name="int8" extendedName="int8" subType="DATASOURCE_TYPE" type="INTEGER"/>
+    </parameter>
+    <parameter name="param5" direction="OUT" nullable="unknown">
+      <datatype name="int8" extendedName="int8" subType="DATASOURCE_TYPE" type="INTEGER"/>
+    </parameter>
+    <parameter name="param6" direction="OUT" nullable="unknown">
+      <datatype name="int8" extendedName="int8" subType="DATASOURCE_TYPE" type="INTEGER"/>
+    </parameter>
+    <parameter name="param7" direction="OUT" nullable="unknown">
+      <datatype name="int8" extendedName="int8" subType="DATASOURCE_TYPE" type="INTEGER"/>
+    </parameter>
+    <parameter name="param8" direction="OUT" nullable="unknown">
+      <datatype name="int8" extendedName="int8" subType="DATASOURCE_TYPE" type="INTEGER"/>
+    </parameter>
+    <parameter name="param9" direction="OUT" nullable="unknown">
+      <datatype name="int8" extendedName="int8" subType="DATASOURCE_TYPE" type="INTEGER"/>
+    </parameter>
+    <parameter name="param10" direction="OUT" nullable="unknown">
+      <datatype name="int8" extendedName="int8" subType="DATASOURCE_TYPE" type="INTEGER"/>
+    </parameter>
+  </parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <attribute name="creationDate" type="LONG">1613475787283</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1613475787283</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1613475787283</attribute>
+</metadata>

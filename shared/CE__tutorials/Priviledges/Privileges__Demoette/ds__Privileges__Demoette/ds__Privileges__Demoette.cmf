@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="ds_Privileges_Demoette" path="/shared/CE_tutorials/Priviledges/Privileges_Demoette/ds_Privileges_Demoette" type="DATA_SOURCE" subtype="FILE" changeToken="0">
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <attribute name="charset" type="STRING">iso-8859-1</attribute>
+  <attribute name="creationDate" type="LONG">1411570176365</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="delimiter" type="STRING">,</attribute>
+  <attribute name="driverName" type="STRING">File-Delimited</attribute>
+  <attribute name="filters" type="STRING">*.csv,*.txt</attribute>
+  <attribute name="hasHeaders" type="BOOLEAN">true</attribute>
+  <attribute name="ignoreTrailingDelimiter" type="BOOLEAN">true</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1411570176430</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="local" type="BOOLEAN">true</attribute>
+  <attribute name="name" type="STRING">ds_Privileges_Demoette</attribute>
+  <attribute name="qualifier" type="STRING">&quot;</attribute>
+  <attribute name="root" type="STRING">C:\Users\Bill\Dropbox\Composite\Demos\Demoettes\CIS Privileges</attribute>
+  <attribute name="startRow" type="INTEGER">1</attribute>
+  <attribute name="type" type="STRING">File</attribute>
+</metadata>

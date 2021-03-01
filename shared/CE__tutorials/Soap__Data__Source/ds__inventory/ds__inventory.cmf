@@ -1,0 +1,57 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="ds_inventory" path="/shared/CE_tutorials/Soap_Data_Source/ds_inventory" type="DATA_SOURCE" subtype="RELATIONAL" changeToken="0">
+  <annotation>&lt;![CDATA[sample data source]]&gt;</annotation>
+  <security>
+    <owner user="admin" domain="composite"/>
+    <privilege group="all" domain="composite" privileges="READ EXECUTE SELECT"/>
+  </security>
+  <attribute name="anyCharWildcard" type="STRING">%</attribute>
+  <attribute name="autoAddChildren" type="BOOLEAN">true</attribute>
+  <attribute name="cacheStatusTable" type="STRING"/>
+  <attribute name="cacheTrackingTable" type="STRING"/>
+  <attribute name="commitOnFetchDone" type="BOOLEAN">false</attribute>
+  <attribute name="connPoolMaxSize" type="INTEGER">100</attribute>
+  <attribute name="connPoolMinSize" type="INTEGER">10</attribute>
+  <attribute name="connPoolTimeout" type="INTEGER">30</attribute>
+  <attribute name="connStaleTimeout" type="INTEGER">60</attribute>
+  <attribute name="connValidateQuery" type="STRING"/>
+  <attribute name="creationDate" type="LONG">0</attribute>
+  <attribute name="creatorUserDomain" type="STRING"/>
+  <attribute name="creatorUserName" type="STRING"/>
+  <attribute name="driverName" type="STRING">MySQL 5.0</attribute>
+  <attribute name="execTimeout" type="INTEGER">0</attribute>
+  <attribute name="isPassThrough" type="STRING">Disabled</attribute>
+  <attribute name="login" type="STRING">tutorial</attribute>
+  <attribute name="maxNumberForOrSyntax" type="INTEGER">2147483647</attribute>
+  <attribute name="maxSourceSideCardinalityForSJ" type="STRING"/>
+  <attribute name="maximumContainerDepth" type="INTEGER">0</attribute>
+  <attribute name="minTargetToSourceRatioForSJ" type="STRING"/>
+  <attribute name="name" type="STRING">ds_inventory</attribute>
+  <attribute name="password" type="PASSWORD_STRING">ENC(tt+khiS5/Vs5b9oxeqyWvQ==$f8APM4XEiEXO2eyU4sQAIw==)</attribute>
+  <attribute name="patternSeparator" type="STRING">,</attribute>
+  <attribute name="persistPassword" type="BOOLEAN">true</attribute>
+  <attribute name="searchCaseSensitively" type="BOOLEAN">false</attribute>
+  <attribute name="searchEscape" type="STRING">\</attribute>
+  <attribute name="selectionState" type="INTEGER">1</attribute>
+  <attribute name="singleCharWildcard" type="STRING">_</attribute>
+  <attribute name="streamingResults" type="BOOLEAN">true</attribute>
+  <attribute name="supportsStarSchema" type="BOOLEAN">false</attribute>
+  <attribute name="txnIsolationLevel" type="STRING">Read Committed</attribute>
+  <attribute name="type" type="STRING">MySql</attribute>
+  <attribute name="url" type="STRING">jdbc:mysql://localhost:9408/inventory</attribute>
+  <attribute name="urlDatabaseName" type="STRING">inventory</attribute>
+  <attribute name="urlIP" type="STRING">localhost</attribute>
+  <attribute name="urlPatternStr" type="STRING">jdbc:mysql://&lt;HOST&gt;:&lt;PORT&gt;/&lt;DATABASE_NAME&gt;</attribute>
+  <attribute name="urlPort" type="INTEGER">9408</attribute>
+  <attribute name="userDeletedSet" type="SET">
+    <item type="NAME_TYPE_PAIR">
+      <name>categories</name>
+      <type>2</type>
+    </item>
+    <item type="NAME_TYPE_PAIR">
+      <name>employees</name>
+      <type>2</type>
+    </item>
+  </attribute>
+</metadata>

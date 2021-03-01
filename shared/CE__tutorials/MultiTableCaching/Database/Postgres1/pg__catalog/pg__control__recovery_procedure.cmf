@@ -1,0 +1,33 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="pg_control_recovery" path="/shared/CE_tutorials/MultiTableCaching/Database/Postgres1/pg_catalog/pg_control_recovery" type="PROCEDURE" subtype="DATABASE_PROCEDURE" changeToken="0">
+  <parameters>
+    <parameter name="min_recovery_end_lsn" direction="OUT" nullable="unknown">
+      <datatype name="pg_lsn" extendedName="pg_lsn" subType="DATASOURCE_TYPE" type="OTHER"/>
+    </parameter>
+    <parameter name="min_recovery_end_timeline" direction="OUT" nullable="unknown">
+      <datatype name="int4" extendedName="int4" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="backup_start_lsn" direction="OUT" nullable="unknown">
+      <datatype name="pg_lsn" extendedName="pg_lsn" subType="DATASOURCE_TYPE" type="OTHER"/>
+    </parameter>
+    <parameter name="backup_end_lsn" direction="OUT" nullable="unknown">
+      <datatype name="pg_lsn" extendedName="pg_lsn" subType="DATASOURCE_TYPE" type="OTHER"/>
+    </parameter>
+    <parameter name="end_of_backup_record_required" direction="OUT" nullable="unknown">
+      <datatype name="bool" extendedName="bool" subType="DATASOURCE_TYPE" type="BOOLEAN"/>
+    </parameter>
+  </parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <attribute name="creationDate" type="LONG">1613475787645</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1613475787645</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1613475787645</attribute>
+</metadata>

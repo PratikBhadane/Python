@@ -1,0 +1,171 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="L2_Customer_Federated" path="/shared/CE_tutorials/Flat files Data Sources/Flat_File_Data_Source/L2_Canonical/L2_Customer_Federated" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
+  <columns>
+    <column name="customerid" nullable="true">
+      <datatype type="STRING" maxLength="32768"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="companyname" nullable="true">
+      <datatype type="STRING" maxLength="32768"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="contactfirstname" nullable="true">
+      <datatype type="STRING" maxLength="32768"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="contactlastname" nullable="true">
+      <datatype type="STRING" maxLength="32768"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="CONTACT_TITLE" nullable="true">
+      <datatype type="STRING" maxLength="32767"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="PHONE_NUMBER" nullable="true">
+      <datatype type="STRING" maxLength="32767"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="billingaddress" nullable="true">
+      <datatype type="STRING" maxLength="32768"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="city" nullable="true">
+      <datatype type="STRING" maxLength="32768"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="stateorprovince" nullable="true">
+      <datatype type="STRING" maxLength="32768"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="TOTAL_CUSTS_THIS_STATE" nullable="true">
+      <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+  </columns>
+  <indexes></indexes>
+  <foreignKeys></foreignKeys>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/shared/CE_tutorials/Flat files Data Sources/Flat_File_Data_Source/L1_Physical/L1_Customer_Phone" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="CUSTOMER_ID">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="COMPANY_NAME">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="CONTACT_FIRST_NAME">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="CONTACT_LAST_NAME">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="CONTACT_TITLE">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="PHONE_NUMBER">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/CE_tutorials/Flat files Data Sources/Flat_File_Data_Source/L1_Physical/L1_Customers_Aggregate" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="STATE">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="NUMBER_OF_CUSTOMERS">
+        <datatype type="FLOAT"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/CE_tutorials/Flat files Data Sources/Flat_File_Data_Source/L1_Physical/L1_Customers_Delimited" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="customerid">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+      <element name="companyname">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+      <element name="contactfirstname">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+      <element name="contactlastname">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+      <element name="billingaddress">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+      <element name="city">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+      <element name="stateorprovince">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+      <element name="postalcode">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+      <element name="countryregion">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+      <element name="contacttitle">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+      <element name="phonenumber">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+      <element name="faxnumber">
+        <datatype type="STRING" maxLength="32768"/>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="SQL" type="STRING">SELECT 
+    L1_Customers_Delimited.customerid, 
+    L1_Customers_Delimited.companyname, 
+    L1_Customers_Delimited.contactfirstname, 
+    L1_Customers_Delimited.contactlastname, 
+    L1_Customer_Phone.CONTACT_TITLE, 
+    L1_Customer_Phone.PHONE_NUMBER, 
+    L1_Customers_Delimited.billingaddress, 
+    L1_Customers_Delimited.city, 
+    L1_Customers_Delimited.stateorprovince, 
+    L1_Customers_Aggregate.NUMBER_OF_CUSTOMERS TOTAL_CUSTS_THIS_STATE
+FROM      
+    /shared/CE_tutorials/&quot;Flat files Data Sources&quot;/Flat_File_Data_Source/L1_Physical/L1_Customer_Phone L1_Customer_Phone INNER JOIN 
+        /shared/CE_tutorials/&quot;Flat files Data Sources&quot;/Flat_File_Data_Source/L1_Physical/L1_Customers_Aggregate L1_Customers_Aggregate INNER JOIN 
+            /shared/CE_tutorials/&quot;Flat files Data Sources&quot;/Flat_File_Data_Source/L1_Physical/L1_Customers_Delimited L1_Customers_Delimited
+        ON L1_Customers_Delimited.stateorprovince = L1_Customers_Aggregate.STATE
+    ON L1_Customers_Delimited.customerid = L1_Customer_Phone.CUSTOMER_ID</attribute>
+  <attribute name="creationDate" type="LONG">1423069489500</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1423069911905</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="BYTE_ARRAY">EIEJBAAAAAUQUQYBABEATAAxAF8AQwB1AHMAdABvAG0AZQByAF8AUABoAG8AbgBlBgIAEQBMADEAXwBDAHUAcwB0AG8AbQBlAHIAXwBQAGgAbwBuAGUDC/////8DCv////8DDP////8LEQAGAAYAcwBoAGEAcgBlAGQADABDAEUAXwB0AHUAdABvAHIAaQBhAGwAcwAXAEYAbABhAHQAIABmAGkAbABlAHMAIABEAGEAdABhACAAUwBvAHUAcgBjAGUAcwAVAEYAbABhAHQAXwBGAGkAbABlAF8ARABhAHQAYQBfAFMAbwB1AHIAYwBlAAsATAAxAF8AUABoAHkAcwBpAGMAYQBsABEATAAxAF8AQwB1AHMAdABvAG0AZQByAF8AUABoAG8AbgBl//8QUQYBABYATAAxAF8AQwB1AHMAdABvAG0AZQByAHMAXwBBAGcAZwByAGUAZwBhAHQAZQYCABYATAAxAF8AQwB1AHMAdABvAG0AZQByAHMAXwBBAGcAZwByAGUAZwBhAHQAZQML/////wMK/////wMM/////wsRAAYABgBzAGgAYQByAGUAZAAMAEMARQBfAHQAdQB0AG8AcgBpAGEAbABzABcARgBsAGEAdAAgAGYAaQBsAGUAcwAgAEQAYQB0AGEAIABTAG8AdQByAGMAZQBzABUARgBsAGEAdABfAEYAaQBsAGUAXwBEAGEAdABhAF8AUwBvAHUAcgBjAGUACwBMADEAXwBQAGgAeQBzAGkAYwBhAGwAFgBMADEAXwBDAHUAcwB0AG8AbQBlAHIAcwBfAEEAZwBnAHIAZQBnAGEAdABl//8QUQYBABYATAAxAF8AQwB1AHMAdABvAG0AZQByAHMAXwBEAGUAbABpAG0AaQB0AGUAZAYCABYATAAxAF8AQwB1AHMAdABvAG0AZQByAHMAXwBEAGUAbABpAG0AaQB0AGUAZAML/////wMK/////wMM/////wsRAAYABgBzAGgAYQByAGUAZAAMAEMARQBfAHQAdQB0AG8AcgBpAGEAbABzABcARgBsAGEAdAAgAGYAaQBsAGUAcwAgAEQAYQB0AGEAIABTAG8AdQByAGMAZQBzABUARgBsAGEAdABfAEYAaQBsAGUAXwBEAGEAdABhAF8AUwBvAHUAcgBjAGUACwBMADEAXwBQAGgAeQBzAGkAYwBhAGwAFgBMADEAXwBDAHUAcwB0AG8AbQBlAHIAcwBfAEQAZQBsAGkAbQBpAHQAZQBk//8QUwYJAAUASQBOAE4ARQBSAw0AAAABAw4AAAACCA8QYgYHAAEAPQEFAAgDEEEGAQAPAHMAdABhAHQAZQBvAHIAcAByAG8AdgBpAG4AYwBlBgIAAAYD//8GBP//Awr/////AwsAAAAC//8IBBBBBgEABQBTAFQAQQBUAEUGAgAABgP//wYE//8DCv////8DCwAAAAH///////8QUwYJAAUASQBOAE4ARQBSAw0AAAAAAw4AAAADCA8QYgYHAAEAPQEFAAgDEEEGAQAKAGMAdQBzAHQAbwBtAGUAcgBpAGQGAgAABgP//wYE//8DCv////8DCwAAAAL//wgEEEEGAQALAEMAVQBTAFQATwBNAEUAUgBfAEkARAYCAAAGA///BgT//wMK/////wMLAAAAAP///////wMFAAAAAggCEDEGAf//AQIBAQYAAQMAAQQAAQUAAwcAAAAABwkAAAABAAAABAkKAAAAChBBBgEACgBjAHUAcwB0AG8AbQBlAHIAaQBkBgIAAAYD//8GBP//Awr/////CAwQGwMSAAABDgQEAAAAAAAAgAABEwH//wMLAAAAAv//EEEGAQALAGMAbwBtAHAAYQBuAHkAbgBhAG0AZQYCAAAGA///BgT//wMK/////wgMEBsDEgAAAQ4EBAAAAAAAAIAAARMB//8DCwAAAAL//xBBBgEAEABjAG8AbgB0AGEAYwB0AGYAaQByAHMAdABuAGEAbQBlBgIAAAYD//8GBP//Awr/////CAwQGwMSAAABDgQEAAAAAAAAgAABEwH//wMLAAAAAv//EEEGAQAPAGMAbwBuAHQAYQBjAHQAbABhAHMAdABuAGEAbQBlBgIAAAYD//8GBP//Awr/////CAwQGwMSAAABDgQEAAAAAAAAgAABEwH//wMLAAAAAv//EEEGAQANAEMATwBOAFQAQQBDAFQAXwBUAEkAVABMAEUGAgAABgP//wYE//8DCv////8IDBAbAxIAAAEOBAQAAAAAAAB//wETAf//AwsAAAAA//8QQQYBAAwAUABIAE8ATgBFAF8ATgBVAE0AQgBFAFIGAgAABgP//wYE//8DCv////8IDBAbAxIAAAEOBAQAAAAAAAB//wETAf//AwsAAAAA//8QQQYBAA4AYgBpAGwAbABpAG4AZwBhAGQAZAByAGUAcwBzBgIAAAYD//8GBP//Awr/////CAwQGwMSAAABDgQEAAAAAAAAgAABEwH//wMLAAAAAv//EEEGAQAEAGMAaQB0AHkGAgAABgP//wYE//8DCv////8IDBAbAxIAAAEOBAQAAAAAAACAAAETAf//AwsAAAAC//8QQQYBAA8AcwB0AGEAdABlAG8AcgBwAHIAbwB2AGkAbgBjAGUGAgAABgP//wYE//8DCv////8IDBAbAxIAAAEOBAQAAAAAAACAAAETAf//AwsAAAAC//8QQQYBABMATgBVAE0AQgBFAFIAXwBPAEYAXwBDAFUAUwBUAE8ATQBFAFIAUwYCABYAVABPAFQAQQBMAF8AQwBVAFMAVABTAF8AVABIAEkAUwBfAFMAVABBAFQARQYD//8GBP//Awr/////CAwQGAMSAAABC///AwsAAAAB/////wkGAAAABRCCAwoAAAE5AwsAAABuAwwAAADIAw0AAACC//8QggMKAAAA/AMLAAABRgMMAAAAyAMNAAAAQv//EIIDCgAAACwDCwAAAFgDDAAAAMgDDQAAAMj//xCCAwr/////Awv/////Awz/////Aw3///////8QggMK/////wML/////wMM/////wMN////////CAMQcQMBAAAACwMCAAAAMgkDAAACJhB0AwYAAAAA//8QcgYE/////xBzAwUAAAAC//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAAAH//xByBgT/////EHMDBQAAAAL//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAAAv//EHIGBP////8QcwMFAAAAAv//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0AwYAAAAD//8QcgYE/////xBzAwUAAAAC//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAAAT//xByBgT/////EHMDBQAAAAD//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAABf//EHIGBP////8QcwMFAAAAAP//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0AwYAAAAG//8QcgYE/////xBzAwUAAAAC//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAAAf//xByBgT/////EHMDBQAAAAL//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAACP//EHIGBP////8QcwMFAAAAAv//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0AwYAAAAJ//8QcgYEABYAVABPAFQAQQBMAF8AQwBVAFMAVABTAF8AVABIAEkAUwBfAFMAVABBAFQARf//EHMDBQAAAAH//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb///////8=</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1423069489500</attribute>
+</metadata>

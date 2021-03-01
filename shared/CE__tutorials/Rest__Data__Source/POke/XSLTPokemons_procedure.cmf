@@ -1,0 +1,228 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="XSLTPokemons" path="/shared/CE_tutorials/Rest_Data_Source/POke/XSLTPokemons" type="PROCEDURE" subtype="XSLT_TRANSFORM_PROCEDURE" changeToken="0">
+  <parameters>
+    <parameter name="limit" direction="IN" nullable="unknown">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="offset" direction="IN" nullable="unknown">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="outputs" direction="OUT" nullable="false">
+      <datatype name="outputs" type="TABLE" refId="256">
+        <element name="count">
+          <datatype name="SMALLINT" type="INTEGER" minValue="-32768" maxValue="32767"/>
+        </element>
+        <element name="next">
+          <datatype name="VARCHAR" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="32768"/>
+        </element>
+        <element name="previous">
+          <datatype name="VARCHAR" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="32768"/>
+        </element>
+        <element name="name">
+          <datatype name="VARCHAR" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="32768"/>
+        </element>
+        <element name="url">
+          <datatype name="VARCHAR" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="32768"/>
+        </element>
+      </datatype>
+    </parameter>
+  </parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/shared/CE_tutorials/Rest_Data_Source/Pokemon/getPokemons" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="258">
+      <element name="limit" direction="IN" nullable="unknown">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="offset" direction="IN" nullable="unknown">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="getPokemons" direction="OUT" nullable="unknown">
+        <datatype name="wrapper" referenceDefinitionSet="/shared/CE_tutorials/Rest_Data_Source/Pokemon/getPokemonsDefinitions" referenceType="wrapper" subType="ELEMENT_DECL" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="ELEMENT" componentName="wrapper">
+          <schemaDatatype>
+            <datatype name="wrapper" superTypeName="anyType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" subType="ELEMENT_DECL" anonymous="true" type="TREE" refId="257">
+              <element name="count">
+                <datatype name="short" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="int" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="INTEGER" minValue="-32768" maxValue="32767"/>
+              </element>
+              <element name="next">
+                <datatype name="string" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="2147483647"/>
+              </element>
+              <element name="previous">
+                <datatype name="string" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="2147483647"/>
+              </element>
+              <element name="results" maxOccurs="2147483647" minOccurs="0">
+                <datatype superTypeName="anyType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" subType="COMPLEX_TYPE" type="TREE" refId="513">
+                  <element name="name">
+                    <datatype name="string" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="2147483647"/>
+                  </element>
+                  <element name="url">
+                    <datatype name="string" namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="2147483647"/>
+                  </element>
+                </datatype>
+              </element>
+            </datatype>
+          </schemaDatatype>
+        </datatype>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="creationDate" type="LONG">1593723629059</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1612864517120</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1593723629059</attribute>
+  <attribute name="sourcePath" type="STRING">/shared/CE_tutorials/Rest_Data_Source/Pokemon/getPokemons</attribute>
+  <attribute name="sourceType" type="SHORT">3</attribute>
+  <attribute name="transformModel" type="STRING">
+&lt;transformModel customized=&quot;false&quot;&gt;
+  &lt;signature&gt;
+    &lt;datatype type=&quot;TREE&quot; refId=&quot;257&quot;&gt;
+      &lt;element name=&quot;inputs&quot;&gt;
+        &lt;datatype name=&quot;inputs&quot; type=&quot;TREE&quot; refId=&quot;513&quot;&gt;
+          &lt;element name=&quot;wrapper&quot; nullable=&quot;false&quot;&gt;
+            &lt;datatype name=&quot;wrapper&quot; referenceDefinitionSet=&quot;/shared/CE_tutorials/Rest_Data_Source/Pokemon/getPokemonsDefinitions&quot; referenceType=&quot;wrapper&quot; subType=&quot;ELEMENT_DECL&quot; type=&quot;XML&quot; contentConstraint=&quot;SEQUENCE&quot; schemaConstraint=&quot;ANY&quot; componentType=&quot;ELEMENT&quot; componentName=&quot;wrapper&quot;&gt;
+              &lt;schemaDatatype&gt;
+                &lt;datatype name=&quot;wrapper&quot; superTypeName=&quot;anyType&quot; superTypeNamespace=&quot;http://www.w3.org/2001/XMLSchema&quot; subType=&quot;ELEMENT_DECL&quot; anonymous=&quot;true&quot; type=&quot;TREE&quot; refId=&quot;769&quot;&gt;
+                  &lt;element name=&quot;count&quot;&gt;
+                    &lt;datatype name=&quot;short&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot; superTypeName=&quot;int&quot; superTypeNamespace=&quot;http://www.w3.org/2001/XMLSchema&quot; type=&quot;INTEGER&quot; minValue=&quot;-32768&quot; maxValue=&quot;32767&quot;/&gt;
+                  &lt;/element&gt;
+                  &lt;element name=&quot;next&quot;&gt;
+                    &lt;datatype name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot; superTypeName=&quot;anySimpleType&quot; superTypeNamespace=&quot;http://www.w3.org/2001/XMLSchema&quot; type=&quot;STRING&quot; maxLength=&quot;2147483647&quot;/&gt;
+                  &lt;/element&gt;
+                  &lt;element name=&quot;previous&quot;&gt;
+                    &lt;datatype name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot; superTypeName=&quot;anySimpleType&quot; superTypeNamespace=&quot;http://www.w3.org/2001/XMLSchema&quot; type=&quot;STRING&quot; maxLength=&quot;2147483647&quot;/&gt;
+                  &lt;/element&gt;
+                  &lt;element name=&quot;results&quot; maxOccurs=&quot;2147483647&quot; minOccurs=&quot;0&quot;&gt;
+                    &lt;datatype superTypeName=&quot;anyType&quot; superTypeNamespace=&quot;http://www.w3.org/2001/XMLSchema&quot; subType=&quot;COMPLEX_TYPE&quot; type=&quot;TREE&quot; refId=&quot;1025&quot;&gt;
+                      &lt;element name=&quot;name&quot;&gt;
+                        &lt;datatype name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot; superTypeName=&quot;anySimpleType&quot; superTypeNamespace=&quot;http://www.w3.org/2001/XMLSchema&quot; type=&quot;STRING&quot; maxLength=&quot;2147483647&quot;/&gt;
+                      &lt;/element&gt;
+                      &lt;element name=&quot;url&quot;&gt;
+                        &lt;datatype name=&quot;string&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot; superTypeName=&quot;anySimpleType&quot; superTypeNamespace=&quot;http://www.w3.org/2001/XMLSchema&quot; type=&quot;STRING&quot; maxLength=&quot;2147483647&quot;/&gt;
+                      &lt;/element&gt;
+                    &lt;/datatype&gt;
+                  &lt;/element&gt;
+                &lt;/datatype&gt;
+              &lt;/schemaDatatype&gt;
+            &lt;/datatype&gt;
+          &lt;/element&gt;
+        &lt;/datatype&gt;
+      &lt;/element&gt;
+      &lt;element name=&quot;outputs&quot;&gt;
+        &lt;datatype name=&quot;outputs&quot; type=&quot;TREE&quot; refId=&quot;1281&quot;&gt;
+          &lt;element name=&quot;outputs&quot;&gt;
+            &lt;datatype name=&quot;outputs&quot; type=&quot;TABLE&quot; refId=&quot;256&quot;&gt;
+              &lt;element name=&quot;count&quot;&gt;
+                &lt;datatype name=&quot;SMALLINT&quot; type=&quot;INTEGER&quot; minValue=&quot;-32768&quot; maxValue=&quot;32767&quot;/&gt;
+              &lt;/element&gt;
+              &lt;element name=&quot;next&quot;&gt;
+                &lt;datatype name=&quot;VARCHAR&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot; superTypeName=&quot;anySimpleType&quot; superTypeNamespace=&quot;http://www.w3.org/2001/XMLSchema&quot; type=&quot;STRING&quot; maxLength=&quot;32768&quot;/&gt;
+              &lt;/element&gt;
+              &lt;element name=&quot;previous&quot;&gt;
+                &lt;datatype name=&quot;VARCHAR&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot; superTypeName=&quot;anySimpleType&quot; superTypeNamespace=&quot;http://www.w3.org/2001/XMLSchema&quot; type=&quot;STRING&quot; maxLength=&quot;32768&quot;/&gt;
+              &lt;/element&gt;
+              &lt;element name=&quot;name&quot;&gt;
+                &lt;datatype name=&quot;VARCHAR&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot; superTypeName=&quot;anySimpleType&quot; superTypeNamespace=&quot;http://www.w3.org/2001/XMLSchema&quot; type=&quot;STRING&quot; maxLength=&quot;32768&quot;/&gt;
+              &lt;/element&gt;
+              &lt;element name=&quot;url&quot;&gt;
+                &lt;datatype name=&quot;VARCHAR&quot; namespace=&quot;http://www.w3.org/2001/XMLSchema&quot; superTypeName=&quot;anySimpleType&quot; superTypeNamespace=&quot;http://www.w3.org/2001/XMLSchema&quot; type=&quot;STRING&quot; maxLength=&quot;32768&quot;/&gt;
+              &lt;/element&gt;
+            &lt;/datatype&gt;
+          &lt;/element&gt;
+        &lt;/datatype&gt;
+      &lt;/element&gt;
+    &lt;/datatype&gt;
+  &lt;/signature&gt;
+  &lt;xslt&gt;
+&amp;lt;xslt:stylesheet version=&amp;quot;2.0&amp;quot; xmlns:csw-xform=&amp;quot;http://www.compositesw.com/2003/xform&amp;quot; xmlns:xs=&amp;quot;http://www.w3.org/2001/XMLSchema&amp;quot; xmlns:xslt=&amp;quot;http://www.w3.org/1999/XSL/Transform&amp;quot;&amp;gt;
+  &amp;lt;xslt:template match=&amp;quot;/&amp;quot;&amp;gt;
+    &amp;lt;xslt:variable name=&amp;quot;_count&amp;quot;/&amp;gt;
+    &amp;lt;xslt:variable name=&amp;quot;_next&amp;quot;/&amp;gt;
+    &amp;lt;xslt:variable name=&amp;quot;_previous&amp;quot;/&amp;gt;
+    &amp;lt;xslt:variable name=&amp;quot;_name&amp;quot;/&amp;gt;
+    &amp;lt;xslt:variable name=&amp;quot;_url&amp;quot;/&amp;gt;
+    &amp;lt;xslt:element name=&amp;quot;results&amp;quot;&amp;gt;
+      &amp;lt;xslt:for-each select=&amp;quot;wrapper&amp;quot;&amp;gt;
+        &amp;lt;xslt:variable name=&amp;quot;_count&amp;quot; select=&amp;quot;count&amp;quot;/&amp;gt;
+        &amp;lt;xslt:variable name=&amp;quot;_next&amp;quot; select=&amp;quot;next&amp;quot;/&amp;gt;
+        &amp;lt;xslt:variable name=&amp;quot;_previous&amp;quot; select=&amp;quot;previous&amp;quot;/&amp;gt;
+        &amp;lt;xslt:for-each select=&amp;quot;results&amp;quot;&amp;gt;
+          &amp;lt;xslt:variable name=&amp;quot;_name&amp;quot; select=&amp;quot;name&amp;quot;/&amp;gt;
+          &amp;lt;xslt:variable name=&amp;quot;_url&amp;quot; select=&amp;quot;url&amp;quot;/&amp;gt;
+          &amp;lt;xslt:element name=&amp;quot;result&amp;quot;&amp;gt;
+            &amp;lt;xslt:element name=&amp;quot;count&amp;quot;&amp;gt;
+              &amp;lt;xslt:value-of select=&amp;quot;$_count&amp;quot;/&amp;gt;
+            &amp;lt;/xslt:element&amp;gt;
+            &amp;lt;xslt:element name=&amp;quot;next&amp;quot;&amp;gt;
+              &amp;lt;xslt:value-of select=&amp;quot;$_next&amp;quot;/&amp;gt;
+            &amp;lt;/xslt:element&amp;gt;
+            &amp;lt;xslt:element name=&amp;quot;previous&amp;quot;&amp;gt;
+              &amp;lt;xslt:value-of select=&amp;quot;$_previous&amp;quot;/&amp;gt;
+            &amp;lt;/xslt:element&amp;gt;
+            &amp;lt;xslt:element name=&amp;quot;name&amp;quot;&amp;gt;
+              &amp;lt;xslt:value-of select=&amp;quot;$_name&amp;quot;/&amp;gt;
+            &amp;lt;/xslt:element&amp;gt;
+            &amp;lt;xslt:element name=&amp;quot;url&amp;quot;&amp;gt;
+              &amp;lt;xslt:value-of select=&amp;quot;$_url&amp;quot;/&amp;gt;
+            &amp;lt;/xslt:element&amp;gt;
+          &amp;lt;/xslt:element&amp;gt;
+        &amp;lt;/xslt:for-each&amp;gt;
+      &amp;lt;/xslt:for-each&amp;gt;
+    &amp;lt;/xslt:element&amp;gt;
+  &amp;lt;/xslt:template&amp;gt;
+&amp;lt;/xslt:stylesheet&amp;gt;&lt;/xslt&gt;
+  &lt;links&gt;
+    &lt;link source=&quot;/inputs/wrapper/previous&quot; target=&quot;/outputs/outputs/previous&quot;/&gt;
+    &lt;link source=&quot;/inputs/wrapper/count&quot; target=&quot;/outputs/outputs/count&quot;/&gt;
+    &lt;link source=&quot;/inputs/wrapper/next&quot; target=&quot;/outputs/outputs/next&quot;/&gt;
+    &lt;link source=&quot;/inputs/wrapper/results/url&quot; target=&quot;/outputs/outputs/url&quot;/&gt;
+    &lt;link source=&quot;/inputs/wrapper/results/name&quot; target=&quot;/outputs/outputs/name&quot;/&gt;
+  &lt;/links&gt;
+&lt;/transformModel&gt;</attribute>
+  <attribute name="xqueryModel" type="NULL"/>
+  <attribute name="xslt" type="STRING">
+&lt;xslt:stylesheet version=&quot;2.0&quot; xmlns:csw-xform=&quot;http://www.compositesw.com/2003/xform&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xslt=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
+  &lt;xslt:template match=&quot;/&quot;&gt;
+    &lt;xslt:variable name=&quot;_count&quot;/&gt;
+    &lt;xslt:variable name=&quot;_next&quot;/&gt;
+    &lt;xslt:variable name=&quot;_previous&quot;/&gt;
+    &lt;xslt:variable name=&quot;_name&quot;/&gt;
+    &lt;xslt:variable name=&quot;_url&quot;/&gt;
+    &lt;xslt:element name=&quot;results&quot;&gt;
+      &lt;xslt:for-each select=&quot;wrapper&quot;&gt;
+        &lt;xslt:variable name=&quot;_count&quot; select=&quot;count&quot;/&gt;
+        &lt;xslt:variable name=&quot;_next&quot; select=&quot;next&quot;/&gt;
+        &lt;xslt:variable name=&quot;_previous&quot; select=&quot;previous&quot;/&gt;
+        &lt;xslt:for-each select=&quot;results&quot;&gt;
+          &lt;xslt:variable name=&quot;_name&quot; select=&quot;name&quot;/&gt;
+          &lt;xslt:variable name=&quot;_url&quot; select=&quot;url&quot;/&gt;
+          &lt;xslt:element name=&quot;result&quot;&gt;
+            &lt;xslt:element name=&quot;count&quot;&gt;
+              &lt;xslt:value-of select=&quot;$_count&quot;/&gt;
+            &lt;/xslt:element&gt;
+            &lt;xslt:element name=&quot;next&quot;&gt;
+              &lt;xslt:value-of select=&quot;$_next&quot;/&gt;
+            &lt;/xslt:element&gt;
+            &lt;xslt:element name=&quot;previous&quot;&gt;
+              &lt;xslt:value-of select=&quot;$_previous&quot;/&gt;
+            &lt;/xslt:element&gt;
+            &lt;xslt:element name=&quot;name&quot;&gt;
+              &lt;xslt:value-of select=&quot;$_name&quot;/&gt;
+            &lt;/xslt:element&gt;
+            &lt;xslt:element name=&quot;url&quot;&gt;
+              &lt;xslt:value-of select=&quot;$_url&quot;/&gt;
+            &lt;/xslt:element&gt;
+          &lt;/xslt:element&gt;
+        &lt;/xslt:for-each&gt;
+      &lt;/xslt:for-each&gt;
+    &lt;/xslt:element&gt;
+  &lt;/xslt:template&gt;
+&lt;/xslt:stylesheet&gt;</attribute>
+</metadata>

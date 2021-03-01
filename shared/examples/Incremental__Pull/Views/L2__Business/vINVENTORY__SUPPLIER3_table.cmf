@@ -1,0 +1,311 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="vINVENTORY_SUPPLIER3" path="/shared/examples/Incremental_Pull/Views/L2_Business/vINVENTORY_SUPPLIER3" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
+  <columns>
+    <column name="ProductID" nullable="true">
+      <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="ProductName" nullable="true">
+      <datatype type="STRING" maxLength="32767"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="SupplierID" nullable="true">
+      <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="UnitPrice" nullable="true">
+      <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="ReorderLevel" nullable="true">
+      <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="LeadTime" nullable="true">
+      <datatype type="STRING" maxLength="32767"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="SupplierID1" nullable="true">
+      <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="SupplierName" nullable="true">
+      <datatype type="STRING" maxLength="32767"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="SupplierContactName" nullable="true">
+      <datatype type="STRING" maxLength="32767"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="SupplierPhoneNumber" nullable="true">
+      <datatype type="STRING" maxLength="32767"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+  </columns>
+  <indexes></indexes>
+  <foreignKeys></foreignKeys>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/shared/examples/Incremental_Pull/INCR_PULL_CACHE_DB" type="DATA_SOURCE">
+    <datatype name="Tree" type="TREE" refId="257"></datatype>
+  </dependency>
+  <dependency target="/shared/examples/Incremental_Pull/INCR_PULL_CACHE_DB/cache_target_incremental_pull/dbo/INVENTORY_SUPPLIER3_CACHE" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="cachekey" nullable="false">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="ProductID">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="ProductName">
+        <datatype type="CLOB" maxLength="2147483647"/>
+      </element>
+      <element name="SupplierID">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="UnitPrice">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="ReorderLevel">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="LeadTime">
+        <datatype type="CLOB" maxLength="2147483647"/>
+      </element>
+      <element name="SupplierID1">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="SupplierName">
+        <datatype type="CLOB" maxLength="2147483647"/>
+      </element>
+      <element name="SupplierContactName">
+        <datatype type="CLOB" maxLength="2147483647"/>
+      </element>
+      <element name="SupplierPhoneNumber">
+        <datatype type="CLOB" maxLength="2147483647"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/examples/Incremental_Pull/INVENTORY_DB/INVENTORY.xlsx/INVENTORY" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="ProductID">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="ProductName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierID">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="UnitPrice">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="ReorderLevel">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="LeadTime">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/examples/Incremental_Pull/Procedures/sCRUDInitialCacheTransaction3" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="258">
+      <element name="IncrementalMaintenanceLevel" direction="OUT">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/examples/Incremental_Pull/Procedures/sCRUDRefreshCacheTransaction3" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="258">
+      <element name="IncrementalMaintenanceLevel" direction="OUT">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/examples/Incremental_Pull/SUPPLIER_DB/SUPPLIER.xlsx/SUPPLIER" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="SupplierID">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="SupplierName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierContactName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierPhoneNumber">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="SQL" type="STRING">SELECT 
+    INVENTORY.ProductID, 
+    INVENTORY.ProductName, 
+    INVENTORY.SupplierID, 
+    INVENTORY.UnitPrice, 
+    INVENTORY.ReorderLevel, 
+    INVENTORY.LeadTime, 
+    SUPPLIER.SupplierID SupplierID1, 
+    SUPPLIER.SupplierName, 
+    SUPPLIER.SupplierContactName, 
+    SUPPLIER.SupplierPhoneNumber
+FROM      
+    /shared/examples/Incremental_Pull/INVENTORY_DB/&quot;INVENTORY.xlsx&quot;/INVENTORY INVENTORY INNER JOIN 
+        /shared/examples/Incremental_Pull/SUPPLIER_DB/&quot;SUPPLIER.xlsx&quot;/SUPPLIER SUPPLIER
+    ON INVENTORY.SupplierID = SUPPLIER.SupplierID</attribute>
+  <attribute name="cacheClearRule" type="STRING">MANUAL</attribute>
+  <attribute name="cacheConfigured" type="BOOLEAN">true</attribute>
+  <attribute name="cacheDeltaLoader" type="STRING">/shared/examples/Incremental_Pull/Procedures/sCRUDRefreshCacheTransaction3</attribute>
+  <attribute name="cacheEnabled" type="BOOLEAN">true</attribute>
+  <attribute name="cacheIncremental" type="BOOLEAN">false</attribute>
+  <attribute name="cacheLastTracking" type="STRING">/shared/examples/Incremental_Pull/INCR_PULL_CACHE_DB/cache_target_incremental_pull/dbo/cache_tracking</attribute>
+  <attribute name="cachePostRefreshCallback" type="NULL"/>
+  <attribute name="cachePreRefreshCallback" type="NULL"/>
+  <attribute name="cachePullBasedIncremental" type="BOOLEAN">true</attribute>
+  <attribute name="cacheRefreshMode" type="STRING">MANUAL</attribute>
+  <attribute name="cacheSnapshotLoader" type="STRING">/shared/examples/Incremental_Pull/Procedures/sCRUDInitialCacheTransaction3</attribute>
+  <attribute name="cacheStorageSource" type="STRING">/shared/examples/Incremental_Pull/INCR_PULL_CACHE_DB</attribute>
+  <attribute name="cacheStorageTargets" type="MAP">
+    <item>
+      <key type="STRING">result</key>
+      <value type="STRING">/shared/examples/Incremental_Pull/INCR_PULL_CACHE_DB/cache_target_incremental_pull/dbo/INVENTORY_SUPPLIER3_CACHE</value>
+    </item>
+  </attribute>
+  <attribute name="cacheStorageType" type="STRING">DATA_SOURCE</attribute>
+  <attribute name="creationDate" type="LONG">1469629867386</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1611747281464</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="BYTE_ARRAY">EIEJBAAAAAMQUQYBAAgAUwBVAFAAUABMAEkARQBSBgIACABTAFUAUABQAEwASQBFAFIDC/////8DCv////8DDP////8LEQAGAAYAcwBoAGEAcgBlAGQACABlAHgAYQBtAHAAbABlAHMAEABJAG4AYwByAGUAbQBlAG4AdABhAGwAXwBQAHUAbABsAAsAUwBVAFAAUABMAEkARQBSAF8ARABCAA0AUwBVAFAAUABMAEkARQBSAC4AeABsAHMAeAAIAFMAVQBQAFAATABJAEUAUv//EFEGAQAJAEkATgBWAEUATgBUAE8AUgBZBgIACQBJAE4AVgBFAE4AVABPAFIAWQML/////wMK/////wMM/////wsRAAYABgBzAGgAYQByAGUAZAAIAGUAeABhAG0AcABsAGUAcwAQAEkAbgBjAHIAZQBtAGUAbgB0AGEAbABfAFAAdQBsAGwADABJAE4AVgBFAE4AVABPAFIAWQBfAEQAQgAOAEkATgBWAEUATgBUAE8AUgBZAC4AeABsAHMAeAAJAEkATgBWAEUATgBUAE8AUgBZ//8QUwYJAAUASQBOAE4ARQBSAw0AAAABAw4AAAAACA8QYgYHAAEAPQEFAAgDEEEGAQAKAFMAdQBwAHAAbABpAGUAcgBJAEQGAgAABgP//wYE//8DCv////8DCwAAAAH//wgEEEEGAQAKAFMAdQBwAHAAbABpAGUAcgBJAEQGAgAABgP//wYE//8DCv////8DCwAAAAD///////8DBQAAAAEIAhAxBgH//wECAQEGAAEDAAEEAAEFAAMHAAAAAAcJAAAAAQAAAAIJCgAAAAoQQQYBAAkAUAByAG8AZAB1AGMAdABJAEQGAgAABgP//wYE//8DCv////8IDBAvAxL///we//8DCwAAAAH//xBBBgEACwBQAHIAbwBkAHUAYwB0AE4AYQBtAGUGAgAABgP//wYE//8DCv////8IDBAbBgIABwBWAEEAUgBDAEgAQQBSAxIAAAEOBAQAAAAAAAB//wETAf//AwsAAAAB//8QQQYBAAoAUwB1AHAAcABsAGkAZQByAEkARAYCAAAGA///BgT//wMK/////wgMEC8DEv///B7//wMLAAAAAf//EEEGAQAJAFUAbgBpAHQAUAByAGkAYwBlBgIAAAYD//8GBP//Awr/////CAwQLwMS///8Hv//AwsAAAAB//8QQQYBAAwAUgBlAG8AcgBkAGUAcgBMAGUAdgBlAGwGAgAABgP//wYE//8DCv////8IDBAvAxL///we//8DCwAAAAH//xBBBgEACABMAGUAYQBkAFQAaQBtAGUGAgAABgP//wYE//8DCv////8IDBAbBgIABwBWAEEAUgBDAEgAQQBSAxIAAAEOBAQAAAAAAAB//wETAf//AwsAAAAB//8QQQYBAAoAUwB1AHAAcABsAGkAZQByAEkARAYCAAsAUwB1AHAAcABsAGkAZQByAEkARAAxBgP//wYE//8DCv////8IDBAvAxL///we//8DCwAAAAD//xBBBgEADABTAHUAcABwAGwAaQBlAHIATgBhAG0AZQYCAAAGA///BgT//wMK/////wgMEBsGAgAHAFYAQQBSAEMASABBAFIDEgAAAQ4EBAAAAAAAAH//ARMB//8DCwAAAAD//xBBBgEAEwBTAHUAcABwAGwAaQBlAHIAQwBvAG4AdABhAGMAdABOAGEAbQBlBgIAAAYD//8GBP//Awr/////CAwQGwYCAAcAVgBBAFIAQwBIAEEAUgMSAAABDgQEAAAAAAAAf/8BEwH//wMLAAAAAP//EEEGAQATAFMAdQBwAHAAbABpAGUAcgBQAGgAbwBuAGUATgB1AG0AYgBlAHIGAgAABgP//wYE//8DCv////8IDBAbBgIABwBWAEEAUgBDAEgAQQBSAxIAAAEOBAQAAAAAAAB//wETAf//AwsAAAAA/////wkGAAAAAxCCAwoAAAHVAwsAAAEKAwwAAADIAw0AAABi//8QggMKAAAAqQMLAAAAlAMMAAAAyAMNAAAAgv//EIIDCv////8DC/////8DDP////8DDf///////wgDEHEDAQAAAAsDAgAAADIJAwAAAiYQdAMGAAAAAP//EHIGBP////8QcwMFAAAAAf//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0AwYAAAAB//8QcgYE/////xBzAwUAAAAB//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAAAL//xByBgT/////EHMDBQAAAAH//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAAA///EHIGBP////8QcwMFAAAAAf//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0AwYAAAAE//8QcgYE/////xBzAwUAAAAB//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAAAX//xByBgT/////EHMDBQAAAAH//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAABv//EHIGBAALAFMAdQBwAHAAbABpAGUAcgBJAEQAMf//EHMDBQAAAAD//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAAB///EHIGBP////8QcwMFAAAAAP//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0AwYAAAAI//8QcgYE/////xBzAwUAAAAA//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAAAn//xByBgT/////EHMDBQAAAAD//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb///////8=</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1469629867386</attribute>
+  <trigger>
+    <security>
+      <owner user="admin" domain="composite"/>
+    </security>
+    <dependency target="/lib/resource/RefreshResourceCache" type="PROCEDURE">
+      <datatype name="Tree" type="TREE" refId="257"></datatype>
+    </dependency>
+    <dependency target="/shared/examples/Incremental_Pull/Views/L2_Business/vINVENTORY_SUPPLIER3" type="TABLE">
+      <datatype type="TABLE" refId="256">
+        <element name="ProductID">
+          <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+        </element>
+        <element name="ProductName">
+          <datatype type="STRING" maxLength="32767"/>
+        </element>
+        <element name="SupplierID">
+          <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+        </element>
+        <element name="UnitPrice">
+          <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+        </element>
+        <element name="ReorderLevel">
+          <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+        </element>
+        <element name="LeadTime">
+          <datatype type="STRING" maxLength="32767"/>
+        </element>
+        <element name="SupplierID1">
+          <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+        </element>
+        <element name="SupplierName">
+          <datatype type="STRING" maxLength="32767"/>
+        </element>
+        <element name="SupplierContactName">
+          <datatype type="STRING" maxLength="32767"/>
+        </element>
+        <element name="SupplierPhoneNumber">
+          <datatype type="STRING" maxLength="32767"/>
+        </element>
+      </datatype>
+    </dependency>
+    <attribute name="actionProperties" type="MAP">
+      <item>
+        <key type="STRING">PATH</key>
+        <value type="STRING">/lib/resource/RefreshResourceCache</value>
+      </item>
+      <item>
+        <key type="STRING">PARAMETERS</key>
+        <value type="STRING">&apos;/shared/examples/Incremental_Pull/Views/L2_Business/vINVENTORY_SUPPLIER3&apos;,&apos;TABLE&apos;</value>
+      </item>
+    </attribute>
+    <attribute name="actionType" type="STRING">PROCEDURE</attribute>
+    <attribute name="conditionSchedule" type="MAP">
+      <item>
+        <key type="STRING">startTime</key>
+        <value type="LONG">1469719374000</value>
+      </item>
+      <item>
+        <key type="STRING">interval</key>
+        <value type="INTEGER">0</value>
+      </item>
+      <item>
+        <key type="STRING">count</key>
+        <value type="INTEGER">1</value>
+      </item>
+      <item>
+        <key type="STRING">isCluster</key>
+        <value type="BOOLEAN">true</value>
+      </item>
+      <item>
+        <key type="STRING">lastScheduledTime</key>
+        <value type="LONG">0</value>
+      </item>
+      <item>
+        <key type="STRING">endTime</key>
+        <value type="LONG">0</value>
+      </item>
+      <item>
+        <key type="STRING">period</key>
+        <value type="INTEGER">2</value>
+      </item>
+      <item>
+        <key type="STRING">mode</key>
+        <value type="STRING">CALENDAR</value>
+      </item>
+      <item>
+        <key type="STRING">lastRunTime</key>
+        <value type="LONG">0</value>
+      </item>
+    </attribute>
+    <attribute name="conditionType" type="STRING">TIMER</attribute>
+    <attribute name="creationDate" type="LONG">1469719487459</attribute>
+    <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+    <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+    <attribute name="creatorUserName" type="STRING">admin</attribute>
+    <attribute name="enabled" type="BOOLEAN">false</attribute>
+    <attribute name="isChildTrigger" type="BOOLEAN">true</attribute>
+    <attribute name="lastModifiedDate" type="LONG">1611747281464</attribute>
+    <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+    <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+    <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+    <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1469719487459</attribute>
+  </trigger>
+</metadata>

@@ -1,0 +1,114 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="pqryInSelect" path="/shared/CE_tutorials/ParameterizedQuery/pqryInSelect" type="PROCEDURE" subtype="SQL_SCRIPT_PROCEDURE" changeToken="0">
+  <parameters>
+    <parameter name="WhereParm" direction="IN" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+    </parameter>
+    <parameter name="ResultLabel" direction="IN" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+    </parameter>
+    <parameter name="result" direction="OUT" nullable="true">
+      <datatype name="result" type="TABLE" refId="256">
+        <element name="Expr2">
+          <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+        </element>
+        <element name="ponumber">
+          <datatype name="VARCHAR" type="STRING" maxLength="30"/>
+        </element>
+        <element name="purchaseorderdescription">
+          <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+        </element>
+        <element name="supplierid">
+          <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+        </element>
+        <element name="employeeid">
+          <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+        </element>
+        <element name="orderdate">
+          <datatype name="DATE" type="DATE"/>
+        </element>
+        <element name="daterequired">
+          <datatype name="DATE" type="DATE"/>
+        </element>
+        <element name="datepromised">
+          <datatype name="DATE" type="DATE"/>
+        </element>
+        <element name="shipdate">
+          <datatype name="DATE" type="DATE"/>
+        </element>
+        <element name="shippingmethodid">
+          <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+        </element>
+        <element name="freightcharge">
+          <datatype name="NUMERIC" type="DECIMAL" maxDigits="12" minFractionalDigits="2" maxFractionalDigits="2"/>
+        </element>
+        <element name="Expr1">
+          <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+        </element>
+      </datatype>
+    </parameter>
+  </parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/shared/examples/ds_inventory/tutorial/purchaseorders" type="TABLE">
+    <datatype name="Tree" type="TREE" refId="257"></datatype>
+  </dependency>
+  <attribute name="Script" type="STRING">PROCEDURE pqryInSelect(
+    IN WhereParm VARCHAR(255), 
+    IN ResultLabel VARCHAR(255), 
+    OUT result CURSOR (
+        Expr2 VARCHAR(255), 
+        ponumber VARCHAR(30), 
+        purchaseorderdescription VARCHAR(255), 
+        supplierid INTEGER, 
+        employeeid INTEGER, 
+        orderdate DATE, 
+        daterequired DATE, 
+        datepromised DATE, 
+        shipdate DATE, 
+        shippingmethodid INTEGER, 
+        freightcharge NUMERIC(12,2), 
+        Expr1 VARCHAR(255)
+        )
+    )
+    BEGIN
+        OPEN result FOR 
+            SELECT 
+                WhereParm Expr2, 
+                purchaseorders.ponumber, 
+                purchaseorders.purchaseorderdescription, 
+                purchaseorders.supplierid, 
+                purchaseorders.employeeid, 
+                purchaseorders.orderdate, 
+                purchaseorders.daterequired, 
+                purchaseorders.datepromised, 
+                purchaseorders.shipdate, 
+                purchaseorders.shippingmethodid, 
+                purchaseorders.freightcharge, 
+                ResultLabel Expr1
+            FROM      
+                /shared/examples/ds_inventory/tutorial/purchaseorders purchaseorders
+             WHERE
+                urchaseorders.orderdate&gt;=  WhereParm   ;
+END</attribute>
+  <attribute name="creationDate" type="LONG">1611578291972</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="impactLevel" type="INTEGER">2</attribute>
+  <attribute name="impactMessage" type="STRING">Invalid column name &apos;orderdate&apos;.  On line 37, column 17.  [parser-2900650]</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1612173115152</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="native_only" type="STRING">false</attribute>
+  <attribute name="public_constants" type="NULL"/>
+  <attribute name="public_exceptions" type="NULL"/>
+  <attribute name="public_types" type="NULL"/>
+  <attribute name="references" type="NULL"/>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1611578291972</attribute>
+</metadata>

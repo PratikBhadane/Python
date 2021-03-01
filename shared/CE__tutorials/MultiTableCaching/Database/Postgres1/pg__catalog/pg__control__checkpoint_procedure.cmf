@@ -1,0 +1,72 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="pg_control_checkpoint" path="/shared/CE_tutorials/MultiTableCaching/Database/Postgres1/pg_catalog/pg_control_checkpoint" type="PROCEDURE" subtype="DATABASE_PROCEDURE" changeToken="0">
+  <parameters>
+    <parameter name="checkpoint_lsn" direction="OUT" nullable="unknown">
+      <datatype name="pg_lsn" extendedName="pg_lsn" subType="DATASOURCE_TYPE" type="OTHER"/>
+    </parameter>
+    <parameter name="redo_lsn" direction="OUT" nullable="unknown">
+      <datatype name="pg_lsn" extendedName="pg_lsn" subType="DATASOURCE_TYPE" type="OTHER"/>
+    </parameter>
+    <parameter name="redo_wal_file" direction="OUT" nullable="unknown">
+      <datatype name="text" extendedName="text" subType="DATASOURCE_TYPE" type="CLOB" maxLength="4294967295"/>
+    </parameter>
+    <parameter name="timeline_id" direction="OUT" nullable="unknown">
+      <datatype name="int4" extendedName="int4" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="prev_timeline_id" direction="OUT" nullable="unknown">
+      <datatype name="int4" extendedName="int4" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="full_page_writes" direction="OUT" nullable="unknown">
+      <datatype name="bool" extendedName="bool" subType="DATASOURCE_TYPE" type="BOOLEAN"/>
+    </parameter>
+    <parameter name="next_xid" direction="OUT" nullable="unknown">
+      <datatype name="text" extendedName="text" subType="DATASOURCE_TYPE" type="CLOB" maxLength="4294967295"/>
+    </parameter>
+    <parameter name="next_oid" direction="OUT" nullable="unknown">
+      <datatype name="oid" extendedName="oid" subType="DATASOURCE_TYPE" type="BLOB" maxLength="4294967295"/>
+    </parameter>
+    <parameter name="next_multixact_id" direction="OUT" nullable="unknown">
+      <datatype name="xid" extendedName="xid" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="next_multi_offset" direction="OUT" nullable="unknown">
+      <datatype name="xid" extendedName="xid" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="oldest_xid" direction="OUT" nullable="unknown">
+      <datatype name="xid" extendedName="xid" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="oldest_xid_dbid" direction="OUT" nullable="unknown">
+      <datatype name="oid" extendedName="oid" subType="DATASOURCE_TYPE" type="BLOB" maxLength="4294967295"/>
+    </parameter>
+    <parameter name="oldest_active_xid" direction="OUT" nullable="unknown">
+      <datatype name="xid" extendedName="xid" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="oldest_multi_xid" direction="OUT" nullable="unknown">
+      <datatype name="xid" extendedName="xid" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="oldest_multi_dbid" direction="OUT" nullable="unknown">
+      <datatype name="oid" extendedName="oid" subType="DATASOURCE_TYPE" type="BLOB" maxLength="4294967295"/>
+    </parameter>
+    <parameter name="oldest_commit_ts_xid" direction="OUT" nullable="unknown">
+      <datatype name="xid" extendedName="xid" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="newest_commit_ts_xid" direction="OUT" nullable="unknown">
+      <datatype name="xid" extendedName="xid" subType="DATASOURCE_TYPE" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="checkpoint_time" direction="OUT" nullable="unknown">
+      <datatype name="timestamptz" extendedName="timestamptz" subType="DATASOURCE_TYPE" type="DATETIME"/>
+    </parameter>
+  </parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <attribute name="creationDate" type="LONG">1613475787644</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1613475787644</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1613475787644</attribute>
+</metadata>

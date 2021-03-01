@@ -1,0 +1,185 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="sCRUDInitialCacheTransaction3" path="/shared/examples/Incremental_Pull/Procedures/sCRUDInitialCacheTransaction3" type="PROCEDURE" subtype="SQL_SCRIPT_PROCEDURE" changeToken="0">
+  <parameters>
+    <parameter name="IncrementalMaintenanceLevel" direction="OUT" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+    </parameter>
+  </parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/lib/debug/Log" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="258">
+      <element name="textToLog" direction="IN">
+        <datatype referenceDefinitionSet="/lib/util/System" referenceType="Text" type="STRING" maxLength="2147483647"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/lib/util/GetEnvironment" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="258">
+      <element name="variableName" direction="IN">
+        <datatype referenceDefinitionSet="/lib/util/System" referenceType="PropertyName" type="STRING" maxLength="255"/>
+      </element>
+      <element name="result" direction="OUT">
+        <datatype referenceDefinitionSet="/lib/util/System" referenceType="PropertyValue" type="STRING" maxLength="4096"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/examples/Incremental_Pull/INCR_PULL_CACHE_DB/cache_target_incremental_pull/dbo/INVENTORY_SUPPLIER3_CACHE" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="cachekey" nullable="false">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="ProductID">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="ProductName">
+        <datatype type="CLOB" maxLength="2147483647"/>
+      </element>
+      <element name="SupplierID">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="UnitPrice">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="ReorderLevel">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="LeadTime">
+        <datatype type="CLOB" maxLength="2147483647"/>
+      </element>
+      <element name="SupplierID1">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="SupplierName">
+        <datatype type="CLOB" maxLength="2147483647"/>
+      </element>
+      <element name="SupplierContactName">
+        <datatype type="CLOB" maxLength="2147483647"/>
+      </element>
+      <element name="SupplierPhoneNumber">
+        <datatype type="CLOB" maxLength="2147483647"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/examples/Incremental_Pull/INVENTORY_DB/INVENTORY.xlsx/INVENTORY" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="ProductID">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="ProductName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierID">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="UnitPrice">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="ReorderLevel">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="LeadTime">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/examples/Incremental_Pull/SUPPLIER_DB/SUPPLIER.xlsx/SUPPLIER" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="SupplierID">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="SupplierName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierContactName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierPhoneNumber">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/examples/Incremental_Pull/Views/L2_Business/vINVENTORY_SUPPLIER3" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="ProductID">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="ProductName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierID">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="UnitPrice">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="ReorderLevel">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="LeadTime">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierID1">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="SupplierName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierContactName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierPhoneNumber">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="Script" type="STRING">-- This is the initial load script example for incremental caching of the INVENTORY_SUPPLIER view.
+-- This use case deals with INSERT, UPDATE, and DELETE operations.
+PROCEDURE sCRUDInitialCacheTransaction3(
+&#x9;OUT IncrementalMaintenanceLevel VARCHAR
+)
+
+BEGIN
+
+&#x9;DECLARE cacheKey BIGINT; -- Holds cacheKey value of current cache data set
+
+&#x9;-- Log beginning of script execution
+&#x9;CALL /lib/debug/log(&apos;Starting script sCRUDInitialCacheTransaction&apos;);
+&#x9;
+&#x9;-- Retrieve cache key from request environment
+&#x9;CALL /lib/util/GetEnvironment(&apos;System.CACHED_RESOURCE_CACHE_KEY&apos;, cacheKey);
+&#x9;
+&#x9;-- Load cache target table&#x9;
+&#x9;INSERT INTO
+&#x9;&#x9;/shared/examples/Incremental_Pull/INCR_PULL_CACHE_DB/cache_target_incremental_pull/dbo/INVENTORY_SUPPLIER3_CACHE
+&#x9;&#x9;SELECT {option DISABLE_DATA_CACHE} -- ignore cache, we need the data from the source
+&#x9;&#x9;&#x9;cacheKey, S.*
+&#x9;&#x9;&#x9;FROM
+&#x9;&#x9;&#x9;&#x9;/shared/examples/Incremental_Pull/Views/L2_Business/vINVENTORY_SUPPLIER3 S;
+&#x9;&#x9;&#x9;&#x9;
+&#x9;-- Set initial incremental maintenance level. 
+&#x9;-- Since the view uses a concatenated key (Product ID and Supplier ID)
+&#x9;-- we will simply set it to 1 for the initial load, and then increment it 
+&#x9;-- each time we refresh.&#x9;
+&#x9;SET IncrementalMaintenanceLevel = &apos;1&apos;;
+
+&#x9;-- Log completion of script execution
+&#x9;CALL /lib/debug/log(&apos;Completion of script sCRUDInitialCacheTransaction&apos;);
+
+END</attribute>
+  <attribute name="creationDate" type="LONG">1469630362025</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1469792686529</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="native_only" type="STRING">false</attribute>
+  <attribute name="references" type="NULL"/>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1469630362025</attribute>
+</metadata>

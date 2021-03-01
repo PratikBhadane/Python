@@ -1,0 +1,302 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="L2_Augmented" path="/shared/CE_tutorials/Rest/L2_AugmentedView/L2_Augmented" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
+  <columns>
+    <column name="City" nullable="true">
+      <datatype type="STRING" maxLength="32767"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="HighTemp" nullable="true">
+      <datatype type="STRING" maxLength="32767"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="orderid" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="customerid" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="purchaseordernumber" nullable="true">
+      <datatype type="STRING" maxLength="30"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="shipname" nullable="true">
+      <datatype type="STRING" maxLength="50"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="shipcity" nullable="true">
+      <datatype type="STRING" maxLength="50"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="shippostalcode" nullable="true">
+      <datatype type="STRING" maxLength="20"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="shipcountry" nullable="true">
+      <datatype type="STRING" maxLength="50"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="shipphonenumber" nullable="true">
+      <datatype type="STRING" maxLength="30"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="shippingmethodid" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="freightcharge" nullable="true">
+      <datatype type="DECIMAL" maxDigits="12" minFractionalDigits="2" maxFractionalDigits="2"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="customerid1" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="companyname" nullable="true">
+      <datatype type="STRING" maxLength="50"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="contactfirstname" nullable="true">
+      <datatype type="STRING" maxLength="30"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="contactlastname" nullable="true">
+      <datatype type="STRING" maxLength="50"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="billingaddress" nullable="true">
+      <datatype type="STRING" maxLength="255"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="city1" nullable="true">
+      <datatype type="STRING" maxLength="50"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="stateorprovince" nullable="true">
+      <datatype type="STRING" maxLength="20"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="postalcode" nullable="true">
+      <datatype type="STRING" maxLength="20"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="countryregion" nullable="true">
+      <datatype type="STRING" maxLength="50"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="contacttitle" nullable="true">
+      <datatype type="STRING" maxLength="50"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="phonenumber" nullable="true">
+      <datatype type="STRING" maxLength="30"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="faxnumber" nullable="true">
+      <datatype type="STRING" maxLength="30"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+  </columns>
+  <indexes></indexes>
+  <foreignKeys></foreignKeys>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/shared/CE_tutorials/Rest/Temperature/vwTemperatureByCity" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="City">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="Date">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="HighTemp">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/CE_tutorials/Rest/TraditionalDataWarehouse/Customers" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="customerid">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="companyname">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="contactfirstname">
+        <datatype type="STRING" maxLength="30"/>
+      </element>
+      <element name="contactlastname">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="billingaddress">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="city">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="stateorprovince">
+        <datatype type="STRING" maxLength="20"/>
+      </element>
+      <element name="postalcode">
+        <datatype type="STRING" maxLength="20"/>
+      </element>
+      <element name="countryregion">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="contacttitle">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="phonenumber">
+        <datatype type="STRING" maxLength="30"/>
+      </element>
+      <element name="faxnumber">
+        <datatype type="STRING" maxLength="30"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/CE_tutorials/Rest/TraditionalDataWarehouse/Orders" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="orderid">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="customerid">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="employeeid">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="orderdate">
+        <datatype type="DATE"/>
+      </element>
+      <element name="purchaseordernumber">
+        <datatype type="STRING" maxLength="30"/>
+      </element>
+      <element name="shipname">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="shipaddress">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="shipcity">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="shipstateorprovince">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="shippostalcode">
+        <datatype type="STRING" maxLength="20"/>
+      </element>
+      <element name="shipcountry">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="shipphonenumber">
+        <datatype type="STRING" maxLength="30"/>
+      </element>
+      <element name="shipdate">
+        <datatype type="DATE"/>
+      </element>
+      <element name="shippingmethodid">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="freightcharge">
+        <datatype type="DECIMAL" maxDigits="12" minFractionalDigits="2" maxFractionalDigits="2"/>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="SQL" type="STRING">SELECT 
+    vwTemperatureByCity.City, 
+    vwTemperatureByCity.HighTemp, 
+    Orders.orderid, 
+    Orders.customerid, 
+    Orders.purchaseordernumber, 
+    Orders.shipname, 
+    Orders.shipcity, 
+    Orders.shippostalcode, 
+    Orders.shipcountry, 
+    Orders.shipphonenumber, 
+    Orders.shippingmethodid, 
+    Orders.freightcharge, 
+    Customers.customerid customerid1, 
+    Customers.companyname, 
+    Customers.contactfirstname, 
+    Customers.contactlastname, 
+    Customers.billingaddress, 
+    Customers.city city1, 
+    Customers.stateorprovince, 
+    Customers.postalcode, 
+    Customers.countryregion, 
+    Customers.contacttitle, 
+    Customers.phonenumber, 
+    Customers.faxnumber
+FROM      
+    /shared/CE_tutorials/Rest/Temperature/vwTemperatureByCity vwTemperatureByCity INNER JOIN 
+        /shared/CE_tutorials/Rest/TraditionalDataWarehouse/Orders Orders INNER JOIN 
+            /shared/CE_tutorials/Rest/TraditionalDataWarehouse/Customers Customers
+        ON Orders.customerid = Customers.customerid
+    ON vwTemperatureByCity.&quot;Date&quot; = Orders.orderdate AND 
+        vwTemperatureByCity.City = Customers.city</attribute>
+  <attribute name="creationDate" type="LONG">1612959015370</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="impactLevel" type="INTEGER">0</attribute>
+  <attribute name="impactMessage" type="NULL"/>
+  <attribute name="lastModifiedDate" type="LONG">1612974871198</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="BYTE_ARRAY">EIEJBAAAAAUQUQYBABMAdgB3AFQAZQBtAHAAZQByAGEAdAB1AHIAZQBCAHkAQwBpAHQAeQYCABMAdgB3AFQAZQBtAHAAZQByAGEAdAB1AHIAZQBCAHkAQwBpAHQAeQML/////wMKAAEVlQMM/////wsRAAUABgBzAGgAYQByAGUAZAAMAEMARQBfAHQAdQB0AG8AcgBpAGEAbABzAAQAUgBlAHMAdAALAFQAZQBtAHAAZQByAGEAdAB1AHIAZQATAHYAdwBUAGUAbQBwAGUAcgBhAHQAdQByAGUAQgB5AEMAaQB0AHn//xBRBgEACQBDAHUAcwB0AG8AbQBlAHIAcwYCAAkAQwB1AHMAdABvAG0AZQByAHMDC/////8DCgABFXADDP////8LEQAFAAYAcwBoAGEAcgBlAGQADABDAEUAXwB0AHUAdABvAHIAaQBhAGwAcwAEAFIAZQBzAHQAGABUAHIAYQBkAGkAdABpAG8AbgBhAGwARABhAHQAYQBXAGEAcgBlAGgAbwB1AHMAZQAJAEMAdQBzAHQAbwBtAGUAcgBz//8QUQYBAAYATwByAGQAZQByAHMGAgAGAE8AcgBkAGUAcgBzAwv/////AwoAARV+Awz/////CxEABQAGAHMAaABhAHIAZQBkAAwAQwBFAF8AdAB1AHQAbwByAGkAYQBsAHMABABSAGUAcwB0ABgAVAByAGEAZABpAHQAaQBvAG4AYQBsAEQAYQB0AGEAVwBhAHIAZQBoAG8AdQBzAGUABgBPAHIAZABlAHIAc///EFMGCQAFAEkATgBOAEUAUgMNAAAAAgMOAAAAAQgPEGIGBwABAD0BBQAIAxBBBgEACgBjAHUAcwB0AG8AbQBlAHIAaQBkBgIAAAYD//8GBP//Awr/////AwsAAAAC//8IBBBBBgEACgBjAHUAcwB0AG8AbQBlAHIAaQBkBgIAAAYD//8GBP//Awr/////AwsAAAAB////////EFMGCQAFAEkATgBOAEUAUgMNAAAAAAMOAAAAAwgPEGEBBQABBgAIARBiBgcAAQA9AQUACAMQQQYBAAQARABhAHQAZQYCAAAGA///BgT//wMK/////wMLAAAAAP//CAQQQQYBAAkAbwByAGQAZQByAGQAYQB0AGUGAgAABgP//wYE//8DCv////8DCwAAAAL/////CAIQYgYHAAEAPQEFAAgDEEEGAQAEAEMAaQB0AHkGAgAABgP//wYE//8DCv////8DCwAAAAD//wgEEEEGAQAEAGMAaQB0AHkGAgAABgP//wYE//8DCv////8DCwAAAAH//////////wMFAAAAAggCEDEGAf//AQIBAQYAAQMAAQQAAQUAAwcAAAAABwkAAAABAAAABAkKAAAAGBBBBgEABABDAGkAdAB5BgIAAAYD//8GBP//Awr/////CAwQGwMSAAABDgQEAAAAAAAAf/8BEwH//wMLAAAAAP//EEEGAQAIAEgAaQBnAGgAVABlAG0AcAYCAAAGA///BgT//wMK/////wgMEBsDEgAAAQ4EBAAAAAAAAH//ARMB//8DCwAAAAD//xBBBgEABwBvAHIAZABlAHIAaQBkBgIAAAYD//8GBP//Awr/////CAwQGQMSAAABDAQH/////4AAAAAEBgAAAAB///////8DCwAAAAL//xBBBgEACgBjAHUAcwB0AG8AbQBlAHIAaQBkBgIAAAYD//8GBP//Awr/////CAwQGQMSAAABDAQH/////4AAAAAEBgAAAAB///////8DCwAAAAL//xBBBgEAEwBwAHUAcgBjAGgAYQBzAGUAbwByAGQAZQByAG4AdQBtAGIAZQByBgIAAAYD//8GBP//Awr/////CAwQGwMSAAABDgQEAAAAAAAAAB4BEwH//wMLAAAAAv//EEEGAQAIAHMAaABpAHAAbgBhAG0AZQYCAAAGA///BgT//wMK/////wgMEBsDEgAAAQ4EBAAAAAAAAAAyARMB//8DCwAAAAL//xBBBgEACABzAGgAaQBwAGMAaQB0AHkGAgAABgP//wYE//8DCv////8IDBAbAxIAAAEOBAQAAAAAAAAAMgETAf//AwsAAAAC//8QQQYBAA4AcwBoAGkAcABwAG8AcwB0AGEAbABjAG8AZABlBgIAAAYD//8GBP//Awr/////CAwQGwMSAAABDgQEAAAAAAAAABQBEwH//wMLAAAAAv//EEEGAQALAHMAaABpAHAAYwBvAHUAbgB0AHIAeQYCAAAGA///BgT//wMK/////wgMEBsDEgAAAQ4EBAAAAAAAAAAyARMB//8DCwAAAAL//xBBBgEADwBzAGgAaQBwAHAAaABvAG4AZQBuAHUAbQBiAGUAcgYCAAAGA///BgT//wMK/////wgMEBsDEgAAAQ4EBAAAAAAAAAAeARMB//8DCwAAAAL//xBBBgEAEABzAGgAaQBwAHAAaQBuAGcAbQBlAHQAaABvAGQAaQBkBgIAAAYD//8GBP//Awr/////CAwQGQMSAAABDAQH/////4AAAAAEBgAAAAB///////8DCwAAAAL//xBBBgEADQBmAHIAZQBpAGcAaAB0AGMAaABhAHIAZwBlBgIAAAYD//8GBP//Awr/////CAwQFwMSAAABCgMOAAAADAMRAAAAAgMQAAAAAv//AwsAAAAC//8QQQYBAAoAYwB1AHMAdABvAG0AZQByAGkAZAYCAAsAYwB1AHMAdABvAG0AZQByAGkAZAAxBgP//wYE//8DCv////8IDBAZAxIAAAEMBAf/////gAAAAAQGAAAAAH///////wMLAAAAAf//EEEGAQALAGMAbwBtAHAAYQBuAHkAbgBhAG0AZQYCAAAGA///BgT//wMK/////wgMEBsDEgAAAQ4EBAAAAAAAAAAyARMB//8DCwAAAAH//xBBBgEAEABjAG8AbgB0AGEAYwB0AGYAaQByAHMAdABuAGEAbQBlBgIAAAYD//8GBP//Awr/////CAwQGwMSAAABDgQEAAAAAAAAAB4BEwH//wMLAAAAAf//EEEGAQAPAGMAbwBuAHQAYQBjAHQAbABhAHMAdABuAGEAbQBlBgIAAAYD//8GBP//Awr/////CAwQGwMSAAABDgQEAAAAAAAAADIBEwH//wMLAAAAAf//EEEGAQAOAGIAaQBsAGwAaQBuAGcAYQBkAGQAcgBlAHMAcwYCAAAGA///BgT//wMK/////wgMEBsDEgAAAQ4EBAAAAAAAAAD/ARMB//8DCwAAAAH//xBBBgEABABjAGkAdAB5BgIABQBjAGkAdAB5ADEGA///BgT//wMK/////wgMEBsDEgAAAQ4EBAAAAAAAAAAyARMB//8DCwAAAAH//xBBBgEADwBzAHQAYQB0AGUAbwByAHAAcgBvAHYAaQBuAGMAZQYCAAAGA///BgT//wMK/////wgMEBsDEgAAAQ4EBAAAAAAAAAAUARMB//8DCwAAAAH//xBBBgEACgBwAG8AcwB0AGEAbABjAG8AZABlBgIAAAYD//8GBP//Awr/////CAwQGwMSAAABDgQEAAAAAAAAABQBEwH//wMLAAAAAf//EEEGAQANAGMAbwB1AG4AdAByAHkAcgBlAGcAaQBvAG4GAgAABgP//wYE//8DCv////8IDBAbAxIAAAEOBAQAAAAAAAAAMgETAf//AwsAAAAB//8QQQYBAAwAYwBvAG4AdABhAGMAdAB0AGkAdABsAGUGAgAABgP//wYE//8DCv////8IDBAbAxIAAAEOBAQAAAAAAAAAMgETAf//AwsAAAAB//8QQQYBAAsAcABoAG8AbgBlAG4AdQBtAGIAZQByBgIAAAYD//8GBP//Awr/////CAwQGwMSAAABDgQEAAAAAAAAAB4BEwH//wMLAAAAAf//EEEGAQAJAGYAYQB4AG4AdQBtAGIAZQByBgIAAAYD//8GBP//Awr/////CAwQGwMSAAABDgQEAAAAAAAAAB4BEwH//wMLAAAAAf////8JBgAAAAUQggMKAAAAQwMLAAAANAMMAAAAyAMNAAAAUv//EIIDCgAAAkMDCwAAABoDDAAAAMgDDQAAAMj//xCCAwoAAADUAwsAAADtAwwAAADIAw0AAADI//8QggMK/////wML/////wMM/////wMN////////EIIDCv////8DC/////8DDP////8DDf///////wgDEHEDAQAAAAsDAgAAADIJAwAAAiYQdAMGAAAAAP//EHIGBP////8QcwMFAAAAAP//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0AwYAAAAB//8QcgYE/////xBzAwUAAAAA//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAAAL//xByBgT/////EHMDBQAAAAL//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAAA///EHIGBP////8QcwMFAAAAAv//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0BgkAEQBPAHIAZABlAHIAcwAuAGUAbQBwAGwAbwB5AGUAZQBpAGT//xByBgT/////EHMDBQAAAAL//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAABP//EHIGBP////8QcwMFAAAAAv//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0AwYAAAAF//8QcgYE/////xBzAwUAAAAC//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQGCQASAE8AcgBkAGUAcgBzAC4AcwBoAGkAcABhAGQAZAByAGUAcwBz//8QcgYE/////xBzAwUAAAAC//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAAAb//xByBgT/////EHMDBQAAAAL//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAYJABoATwByAGQAZQByAHMALgBzAGgAaQBwAHMAdABhAHQAZQBvAHIAcAByAG8AdgBpAG4AYwBl//8QcgYE/////xBzAwUAAAAC//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAAAf//xByBgT/////EHMDBQAAAAL//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAACP//EHIGBP////8QcwMFAAAAAv//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0AwYAAAAJ//8QcgYE/////xBzAwUAAAAC//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAACv//EHIGBP////8QcwMFAAAAAv//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0AwYAAAAL//8QcgYE/////xBzAwUAAAAC//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAAAz//xByBgQACwBjAHUAcwB0AG8AbQBlAHIAaQBkADH//xBzAwUAAAAB//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAAA3//xByBgT/////EHMDBQAAAAH//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAADv//EHIGBP////8QcwMFAAAAAf//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0AwYAAAAP//8QcgYE/////xBzAwUAAAAB//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAABD//xByBgT/////EHMDBQAAAAH//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAAEf//EHIGBAAFAGMAaQB0AHkAMf//EHMDBQAAAAH//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAAEv//EHIGBP////8QcwMFAAAAAf//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0AwYAAAAT//8QcgYE/////xBzAwUAAAAB//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAABT//xByBgT/////EHMDBQAAAAH//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAAFf//EHIGBP////8QcwMFAAAAAf//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0AwYAAAAW//8QcgYE/////xBzAwUAAAAB//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAABf//xByBgT/////EHMDBQAAAAH//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb///////8=</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1612959015370</attribute>
+</metadata>

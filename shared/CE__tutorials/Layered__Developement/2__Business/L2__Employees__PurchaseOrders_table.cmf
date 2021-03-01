@@ -1,0 +1,207 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="L2_Employees_PurchaseOrders" path="/shared/CE_tutorials/Layered_Developement/2_Business/L2_Employees_PurchaseOrders" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
+  <columns>
+    <column name="first_name" nullable="true">
+      <datatype type="STRING" maxLength="50"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="employee_id" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="work_phone" nullable="true">
+      <datatype type="STRING" maxLength="30"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="last_name" nullable="true">
+      <datatype type="STRING" maxLength="50"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="title" nullable="true">
+      <datatype type="STRING" maxLength="50"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="extension" nullable="true">
+      <datatype type="STRING" maxLength="30"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="po_number" nullable="true">
+      <datatype type="STRING" maxLength="30"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="po_description" nullable="true">
+      <datatype type="STRING" maxLength="255"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="po_id" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="emp_id" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="order_date" nullable="true">
+      <datatype type="DATE"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="date_required" nullable="true">
+      <datatype type="DATE"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="date_promised" nullable="true">
+      <datatype type="DATE"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="ship_date" nullable="true">
+      <datatype type="DATE"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="shipping_method_id" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="flight_charge" nullable="true">
+      <datatype type="DECIMAL" maxDigits="12" minFractionalDigits="2" maxFractionalDigits="2"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="supplier_id" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+  </columns>
+  <indexes></indexes>
+  <foreignKeys></foreignKeys>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/shared/CE_tutorials/Layered_Developement/1_Physical/1A_Formatting/L1_FMT_PurchaseOrders" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="po_number">
+        <datatype type="STRING" maxLength="30"/>
+      </element>
+      <element name="po_description">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="po_id">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="emp_id">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="order_date">
+        <datatype type="DATE"/>
+      </element>
+      <element name="date_required">
+        <datatype type="DATE"/>
+      </element>
+      <element name="date_promised">
+        <datatype type="DATE"/>
+      </element>
+      <element name="ship_date">
+        <datatype type="DATE"/>
+      </element>
+      <element name="shipping_method_id">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="flight_charge">
+        <datatype type="DECIMAL" maxDigits="12" minFractionalDigits="2" maxFractionalDigits="2"/>
+      </element>
+      <element name="supplier_id">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/CE_tutorials/Layered_Developement/1_Physical/1A_Formatting/L1_FMT_employees" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="first_name">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="employee_id">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="work_phone">
+        <datatype type="STRING" maxLength="30"/>
+      </element>
+      <element name="last_name">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="title">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="extension">
+        <datatype type="STRING" maxLength="30"/>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="SQL" type="STRING">SELECT 
+    L1_FMT_employees.first_name, 
+    L1_FMT_employees.employee_id, 
+    L1_FMT_employees.work_phone, 
+    L1_FMT_employees.last_name, 
+    L1_FMT_employees.title, 
+    L1_FMT_employees.extension, 
+    L1_FMT_PurchaseOrders.po_number, 
+    L1_FMT_PurchaseOrders.po_description, 
+    L1_FMT_PurchaseOrders.po_id, 
+    L1_FMT_PurchaseOrders.emp_id, 
+    L1_FMT_PurchaseOrders.order_date, 
+    L1_FMT_PurchaseOrders.date_required, 
+    L1_FMT_PurchaseOrders.date_promised, 
+    L1_FMT_PurchaseOrders.ship_date, 
+    L1_FMT_PurchaseOrders.shipping_method_id, 
+    L1_FMT_PurchaseOrders.flight_charge, 
+    L1_FMT_PurchaseOrders.supplier_id
+FROM      
+    /shared/CE_tutorials/Layered_Developement/&quot;1_Physical&quot;/&quot;1A_Formatting&quot;/L1_FMT_employees L1_FMT_employees INNER JOIN 
+        /shared/CE_tutorials/Layered_Developement/&quot;1_Physical&quot;/&quot;1A_Formatting&quot;/L1_FMT_PurchaseOrders L1_FMT_PurchaseOrders
+    ON L1_FMT_employees.employee_id = L1_FMT_PurchaseOrders.emp_id</attribute>
+  <attribute name="creationDate" type="LONG">1610966124719</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="impactLevel" type="INTEGER">0</attribute>
+  <attribute name="impactMessage" type="NULL"/>
+  <attribute name="lastModifiedDate" type="LONG">1610966354492</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="BYTE_ARRAY">EIEJBAAAAAMQUQYBABAATAAxAF8ARgBNAFQAXwBlAG0AcABsAG8AeQBlAGUAcwYCABAATAAxAF8ARgBNAFQAXwBlAG0AcABsAG8AeQBlAGUAcwML/////wMKAABO0QMM/////wsRAAYABgBzAGgAYQByAGUAZAAMAEMARQBfAHQAdQB0AG8AcgBpAGEAbABzABQATABhAHkAZQByAGUAZABfAEQAZQB2AGUAbABvAHAAZQBtAGUAbgB0AAoAMQBfAFAAaAB5AHMAaQBjAGEAbAANADEAQQBfAEYAbwByAG0AYQB0AHQAaQBuAGcAEABMADEAXwBGAE0AVABfAGUAbQBwAGwAbwB5AGUAZQBz//8QUQYBABUATAAxAF8ARgBNAFQAXwBQAHUAcgBjAGgAYQBzAGUATwByAGQAZQByAHMGAgAVAEwAMQBfAEYATQBUAF8AUAB1AHIAYwBoAGEAcwBlAE8AcgBkAGUAcgBzAwv/////AwoAAE7dAwz/////CxEABgAGAHMAaABhAHIAZQBkAAwAQwBFAF8AdAB1AHQAbwByAGkAYQBsAHMAFABMAGEAeQBlAHIAZQBkAF8ARABlAHYAZQBsAG8AcABlAG0AZQBuAHQACgAxAF8AUABoAHkAcwBpAGMAYQBsAA0AMQBBAF8ARgBvAHIAbQBhAHQAdABpAG4AZwAVAEwAMQBfAEYATQBUAF8AUAB1AHIAYwBoAGEAcwBlAE8AcgBkAGUAcgBz//8QUwYJAAUASQBOAE4ARQBSAw0AAAAAAw4AAAABCA8QYgYHAAEAPQEFAAgDEEEGAQALAGUAbQBwAGwAbwB5AGUAZQBfAGkAZAYCAAAGA///BgT//wMK/////wMLAAAAAP//CAQQQQYBAAYAZQBtAHAAXwBpAGQGAgAABgP//wYE//8DCv////8DCwAAAAH///////8DBQAAAAEIAhAxBgH//wECAQEGAAEDAAEEAAEFAAMHAAAAAAcJAAAAAQAAAAIJCgAAABEQQQYBAAoAZgBpAHIAcwB0AF8AbgBhAG0AZQYCAAAGA///BgT//wMK/////wgMEBsDEgAAAQ4EBAAAAAAAAAAyARMB//8DCwAAAAD//xBBBgEACwBlAG0AcABsAG8AeQBlAGUAXwBpAGQGAgAABgP//wYE//8DCv////8IDBAZAxIAAAEMBAf/////gAAAAAQGAAAAAH///////wMLAAAAAP//EEEGAQAKAHcAbwByAGsAXwBwAGgAbwBuAGUGAgAABgP//wYE//8DCv////8IDBAbAxIAAAEOBAQAAAAAAAAAHgETAf//AwsAAAAA//8QQQYBAAkAbABhAHMAdABfAG4AYQBtAGUGAgAABgP//wYE//8DCv////8IDBAbAxIAAAEOBAQAAAAAAAAAMgETAf//AwsAAAAA//8QQQYBAAUAdABpAHQAbABlBgIAAAYD//8GBP//Awr/////CAwQGwMSAAABDgQEAAAAAAAAADIBEwH//wMLAAAAAP//EEEGAQAJAGUAeAB0AGUAbgBzAGkAbwBuBgIAAAYD//8GBP//Awr/////CAwQGwMSAAABDgQEAAAAAAAAAB4BEwH//wMLAAAAAP//EEEGAQAJAHAAbwBfAG4AdQBtAGIAZQByBgIAAAYD//8GBP//Awr/////CAwQGwMSAAABDgQEAAAAAAAAAB4BEwH//wMLAAAAAf//EEEGAQAOAHAAbwBfAGQAZQBzAGMAcgBpAHAAdABpAG8AbgYCAAAGA///BgT//wMK/////wgMEBsDEgAAAQ4EBAAAAAAAAAD/ARMB//8DCwAAAAH//xBBBgEABQBwAG8AXwBpAGQGAgAABgP//wYE//8DCv////8IDBAZAxIAAAEMBAf/////gAAAAAQGAAAAAH///////wMLAAAAAf//EEEGAQAGAGUAbQBwAF8AaQBkBgIAAAYD//8GBP//Awr/////CAwQGQMSAAABDAQH/////4AAAAAEBgAAAAB///////8DCwAAAAH//xBBBgEACgBvAHIAZABlAHIAXwBkAGEAdABlBgIAAAYD//8GBP//Awr/////CAwQFQMSAAABCP//AwsAAAAB//8QQQYBAA0AZABhAHQAZQBfAHIAZQBxAHUAaQByAGUAZAYCAAAGA///BgT//wMK/////wgMEBUDEgAAAQj//wMLAAAAAf//EEEGAQANAGQAYQB0AGUAXwBwAHIAbwBtAGkAcwBlAGQGAgAABgP//wYE//8DCv////8IDBAVAxIAAAEI//8DCwAAAAH//xBBBgEACQBzAGgAaQBwAF8AZABhAHQAZQYCAAAGA///BgT//wMK/////wgMEBUDEgAAAQj//wMLAAAAAf//EEEGAQASAHMAaABpAHAAcABpAG4AZwBfAG0AZQB0AGgAbwBkAF8AaQBkBgIAAAYD//8GBP//Awr/////CAwQGQMSAAABDAQH/////4AAAAAEBgAAAAB///////8DCwAAAAH//xBBBgEADQBmAGwAaQBnAGgAdABfAGMAaABhAHIAZwBlBgIAAAYD//8GBP//Awr/////CAwQFwMSAAABCgMOAAAADAMRAAAAAgMQAAAAAv//AwsAAAAB//8QQQYBAAsAcwB1AHAAcABsAGkAZQByAF8AaQBkBgIAAAYD//8GBP//Awr/////CAwQGQMSAAABDAQH/////4AAAAAEBgAAAAB///////8DCwAAAAH/////CQYAAAADEIIDCgAAAEUDCwAAAFkDDAAAAMgDDQAAAIL//xCCAwoAAAHIAwsAAAB4AwwAAADIAw0AAADI//8QggMK/////wML/////wMM/////wMN////////CAMQcQMBAAAACwMCAAAAMgkDAAACJhB0AwYAAAAA//8QcgYE/////xBzAwUAAAAA//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAAAH//xByBgT/////EHMDBQAAAAD//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAAAv//EHIGBP////8QcwMFAAAAAP//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0AwYAAAAD//8QcgYE/////xBzAwUAAAAA//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAAAT//xByBgT/////EHMDBQAAAAD//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAABf//EHIGBP////8QcwMFAAAAAP//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0AwYAAAAG//8QcgYE/////xBzAwUAAAAB//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAAAf//xByBgT/////EHMDBQAAAAH//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAACP//EHIGBP////8QcwMFAAAAAf//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0AwYAAAAJ//8QcgYE/////xBzAwUAAAAB//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAAAr//xByBgT/////EHMDBQAAAAH//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAAC///EHIGBP////8QcwMFAAAAAf//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0AwYAAAAM//8QcgYE/////xBzAwUAAAAB//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAAA3//xByBgT/////EHMDBQAAAAH//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAADv//EHIGBP////8QcwMFAAAAAf//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0AwYAAAAP//8QcgYE/////xBzAwUAAAAB//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAABD//xByBgT/////EHMDBQAAAAH//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2////////</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1610966124719</attribute>
+</metadata>

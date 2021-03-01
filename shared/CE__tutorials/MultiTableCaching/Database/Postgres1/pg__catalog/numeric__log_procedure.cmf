@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="numeric_log" path="/shared/CE_tutorials/MultiTableCaching/Database/Postgres1/pg_catalog/numeric_log" type="PROCEDURE" subtype="DATABASE_PROCEDURE" changeToken="0">
+  <parameters>
+    <parameter name="returnValue" direction="RETURN" nullable="unknown">
+      <datatype name="numeric" extendedName="numeric" subType="DATASOURCE_TYPE" type="DECIMAL" maxDigits="38" minFractionalDigits="10" maxFractionalDigits="10"/>
+    </parameter>
+    <parameter name="$1" direction="IN" nullable="unknown">
+      <datatype name="numeric" extendedName="numeric" subType="DATASOURCE_TYPE" type="DECIMAL" maxDigits="38" minFractionalDigits="10" maxFractionalDigits="10"/>
+    </parameter>
+    <parameter name="$2" direction="IN" nullable="unknown">
+      <datatype name="numeric" extendedName="numeric" subType="DATASOURCE_TYPE" type="DECIMAL" maxDigits="38" minFractionalDigits="10" maxFractionalDigits="10"/>
+    </parameter>
+  </parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <attribute name="creationDate" type="LONG">1613475787599</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1613475787599</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1613475787599</attribute>
+</metadata>

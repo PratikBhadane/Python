@@ -1,0 +1,291 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="CacheChecker" path="/shared/CE_tutorials/Triggers/Triggers/Timer/CacheChecker" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
+  <columns>
+    <column name="RESOURCE_ID" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="RESOURCE_NAME" nullable="true">
+      <datatype type="STRING" maxLength="255"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="RESOURCE_TYPE" nullable="true">
+      <datatype type="STRING" maxLength="255"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="OWNER_ID" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="OWNER" nullable="true">
+      <datatype type="STRING" maxLength="255"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="PARENT_PATH" nullable="true">
+      <datatype type="STRING" maxLength="65535"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="STATUS" nullable="true">
+      <datatype type="STRING" maxLength="24"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="VARIANT" nullable="true">
+      <datatype type="STRING" maxLength="255"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="LAST_REFRESH_END" nullable="true">
+      <datatype type="DATETIME"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="LAST_SUCCESS_END" nullable="true">
+      <datatype type="DATETIME"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="LAST_FAIL_END" nullable="true">
+      <datatype type="DATETIME"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="LAST_ACCESS" nullable="true">
+      <datatype type="DATETIME"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="LAST_SUCCESS_DURATION" nullable="true">
+      <datatype type="INTEGER"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="LAST_FAIL_DURATION" nullable="true">
+      <datatype type="INTEGER"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="NUM_SUCCESS" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="NUM_FAIL" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="NUM_ACCESS" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="STORAGE_USED" nullable="true">
+      <datatype type="INTEGER"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="MESSAGE" nullable="true">
+      <datatype type="STRING" maxLength="65535"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="INITIAL_TIME" nullable="true">
+      <datatype type="DATETIME"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="NEXT_TIME" nullable="true">
+      <datatype type="DATETIME"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="FREQUENCY" nullable="true">
+      <datatype type="STRING" maxLength="255"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="CURRENT_REFRESH_START" nullable="true">
+      <datatype type="DATETIME"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="CURRENT_DURATION" nullable="true">
+      <datatype type="INTEGER"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="CURRENT_STORAGE" nullable="true">
+      <datatype type="INTEGER"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="CURRENT_CAUSE" nullable="true">
+      <datatype type="STRING" maxLength="24"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+  </columns>
+  <indexes></indexes>
+  <foreignKeys></foreignKeys>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/services/databases/system/SYS_CACHES" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="RESOURCE_ID">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="RESOURCE_NAME">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="RESOURCE_TYPE">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="OWNER_ID">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="OWNER">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="PARENT_PATH">
+        <datatype type="STRING" maxLength="65535"/>
+      </element>
+      <element name="STATUS">
+        <datatype type="STRING" maxLength="24"/>
+      </element>
+      <element name="VARIANT">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="LAST_REFRESH_END">
+        <datatype type="DATETIME"/>
+      </element>
+      <element name="LAST_SUCCESS_END">
+        <datatype type="DATETIME"/>
+      </element>
+      <element name="LAST_FAIL_END">
+        <datatype type="DATETIME"/>
+      </element>
+      <element name="LAST_ACCESS">
+        <datatype type="DATETIME"/>
+      </element>
+      <element name="LAST_SUCCESS_DURATION">
+        <datatype type="INTEGER"/>
+      </element>
+      <element name="LAST_FAIL_DURATION">
+        <datatype type="INTEGER"/>
+      </element>
+      <element name="NUM_SUCCESS">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="NUM_FAIL">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="NUM_ACCESS">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="STORAGE_USED">
+        <datatype type="INTEGER"/>
+      </element>
+      <element name="MESSAGE">
+        <datatype type="STRING" maxLength="65535"/>
+      </element>
+      <element name="INITIAL_TIME">
+        <datatype type="DATETIME"/>
+      </element>
+      <element name="NEXT_TIME">
+        <datatype type="DATETIME"/>
+      </element>
+      <element name="FREQUENCY">
+        <datatype type="STRING" maxLength="255"/>
+      </element>
+      <element name="CURRENT_REFRESH_START">
+        <datatype type="DATETIME"/>
+      </element>
+      <element name="CURRENT_DURATION">
+        <datatype type="INTEGER"/>
+      </element>
+      <element name="CURRENT_STORAGE">
+        <datatype type="INTEGER"/>
+      </element>
+      <element name="CURRENT_CAUSE">
+        <datatype type="STRING" maxLength="24"/>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="SQL" type="STRING">SELECT 
+    SYS_CACHES.RESOURCE_ID, 
+    SYS_CACHES.RESOURCE_NAME, 
+    SYS_CACHES.RESOURCE_TYPE, 
+    SYS_CACHES.OWNER_ID, 
+    SYS_CACHES.OWNER, 
+    SYS_CACHES.PARENT_PATH, 
+    SYS_CACHES.STATUS, 
+    SYS_CACHES.VARIANT, 
+    SYS_CACHES.LAST_REFRESH_END, 
+    SYS_CACHES.LAST_SUCCESS_END, 
+    SYS_CACHES.LAST_FAIL_END, 
+    SYS_CACHES.LAST_ACCESS, 
+    SYS_CACHES.LAST_SUCCESS_DURATION, 
+    SYS_CACHES.LAST_FAIL_DURATION, 
+    SYS_CACHES.NUM_SUCCESS, 
+    SYS_CACHES.NUM_FAIL, 
+    SYS_CACHES.NUM_ACCESS, 
+    SYS_CACHES.STORAGE_USED, 
+    SYS_CACHES.MESSAGE, 
+    SYS_CACHES.INITIAL_TIME, 
+    SYS_CACHES.NEXT_TIME, 
+    SYS_CACHES.FREQUENCY, 
+    SYS_CACHES.CURRENT_REFRESH_START, 
+    SYS_CACHES.CURRENT_DURATION, 
+    SYS_CACHES.CURRENT_STORAGE, 
+    SYS_CACHES.CURRENT_CAUSE
+FROM      
+    /services/databases/system/SYS_CACHES SYS_CACHES
+WHERE
+&#x9;SYS_CACHES.STATUS = &apos;DISABLED&apos;</attribute>
+  <attribute name="creationDate" type="LONG">1433446818155</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1433446929974</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1433446818155</attribute>
+</metadata>

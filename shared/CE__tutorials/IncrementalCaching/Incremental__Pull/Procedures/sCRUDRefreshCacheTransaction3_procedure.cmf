@@ -1,0 +1,317 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="sCRUDRefreshCacheTransaction3" path="/shared/CE_tutorials/IncrementalCaching/Incremental_Pull/Procedures/sCRUDRefreshCacheTransaction3" type="PROCEDURE" subtype="SQL_SCRIPT_PROCEDURE" changeToken="0">
+  <parameters>
+    <parameter name="IncrementalMaintenanceLevel" direction="OUT" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+    </parameter>
+  </parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/lib/debug/Log" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="258">
+      <element name="textToLog" direction="IN">
+        <datatype referenceDefinitionSet="/lib/util/System" referenceType="Text" type="STRING" maxLength="2147483647"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/lib/util/GetEnvironment" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="258">
+      <element name="variableName" direction="IN">
+        <datatype referenceDefinitionSet="/lib/util/System" referenceType="PropertyName" type="STRING" maxLength="255"/>
+      </element>
+      <element name="result" direction="OUT">
+        <datatype referenceDefinitionSet="/lib/util/System" referenceType="PropertyValue" type="STRING" maxLength="4096"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/CE_tutorials/IncrementalCaching/Incremental_Pull/INCR_PULL_CACHE_DB/cache_target_incremental_pull/dbo/INVENTORY_SUPPLIER3_CACHE" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="cachekey" nullable="false">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="ProductID">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="ProductName">
+        <datatype type="CLOB" maxLength="2147483647"/>
+      </element>
+      <element name="SupplierID">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="UnitPrice">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="ReorderLevel">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="LeadTime">
+        <datatype type="CLOB" maxLength="2147483647"/>
+      </element>
+      <element name="SupplierID1">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="SupplierName">
+        <datatype type="CLOB" maxLength="2147483647"/>
+      </element>
+      <element name="SupplierContactName">
+        <datatype type="CLOB" maxLength="2147483647"/>
+      </element>
+      <element name="SupplierPhoneNumber">
+        <datatype type="CLOB" maxLength="2147483647"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/CE_tutorials/IncrementalCaching/Incremental_Pull/INVENTORY_DB/INVENTORY.xlsx/INVENTORY" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="ProductID">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="ProductName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierID">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="UnitPrice">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="ReorderLevel">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="LeadTime">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/CE_tutorials/IncrementalCaching/Incremental_Pull/SUPPLIER_DB/SUPPLIER.xlsx/SUPPLIER" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="SupplierID">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="SupplierName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierContactName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierPhoneNumber">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/CE_tutorials/IncrementalCaching/Incremental_Pull/Views/L2_Business/vINVENTORY_SUPPLIER3" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="ProductID">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="ProductName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierID">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="UnitPrice">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="ReorderLevel">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="LeadTime">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierID1">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="SupplierName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierContactName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierPhoneNumber">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/CE_tutorials/IncrementalCaching/Incremental_Pull/Views/L2_Business/vINVENTORY_SUPPLIER3_NO_CACHE" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="ProductID">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="ProductName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierID">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="UnitPrice">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="ReorderLevel">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="LeadTime">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierID1">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="SupplierName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierContactName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="SupplierPhoneNumber">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="Script" type="STRING">-- This is the Refresh load script example for incremental caching of the INVENTORY_SUPPLIER table.
+-- This use case deals with INSERT, UPDATE, and DELETE operations.
+PROCEDURE sCRUDRefreshCacheTransaction3(
+&#x9;OUT IncrementalMaintenanceLevel VARCHAR
+)
+
+BEGIN
+
+&#x9;DECLARE environmentCacheKey BIGINT; -- Holds cacheKey value of current cache data set
+&#x9;DECLARE maintLevelWork BIGINT; -- Used to increment maintenance level
+
+&#x9;-- Log beginning of script execution
+&#x9;CALL /lib/debug/log(&apos;Starting script sCRUDRefreshCacheTransaction v3&apos;);
+&#x9;
+&#x9;-- Retrieve cache key from request environment
+&#x9;CALL /lib/util/GetEnvironment(&apos;System.CACHED_RESOURCE_CACHE_KEY&apos;, environmentCacheKey);
+
+&#x9;-- Retrieve current incremental maintenance level from request environment 
+&#x9;CALL /lib/util/GetEnvironment(&apos;System.CACHED_RESOURCE_INCREMENTAL_MAINTENANCE_LEVEL&apos;,
+&#x9;&#x9;IncrementalMaintenanceLevel);
+&#x9;
+&#x9;-- Determine next incremental maintenance level 
+&#x9;-- We have chosen to simply increment the level with each refresh, since we have a concatenated logical key
+&#x9;SET maintLevelWork = CAST( IncrementalMaintenanceLevel AS BIGINT );
+&#x9;SET maintLevelWork = maintLevelWork + 1;
+
+&#x9;-- Now INSERT any new rows from the source data
+&#x9;CALL /lib/debug/log(&apos;sCRUDRefreshCacheTransaction: Beginning Insert Operations&apos;);
+&#x9;INSERT INTO
+&#x9;&#x9;/shared/CE_tutorials/IncrementalCaching/Incremental_Pull/INCR_PULL_CACHE_DB/cache_target_incremental_pull/dbo/INVENTORY_SUPPLIER3_CACHE 
+&#x9;&#x9;SELECT {option DISABLE_DATA_CACHE} -- ignore cache, we need the data from the source
+&#x9;&#x9;&#x9;environmentCacheKey, SRC.*
+&#x9;&#x9;&#x9;FROM
+&#x9;&#x9;&#x9;&#x9;/shared/CE_tutorials/IncrementalCaching/Incremental_Pull/Views/L2_Business/vINVENTORY_SUPPLIER3 SRC
+&#x9;&#x9;&#x9;&#x9;LEFT OUTER JOIN
+&#x9;&#x9;&#x9;&#x9;/shared/CE_tutorials/IncrementalCaching/Incremental_Pull/INCR_PULL_CACHE_DB/cache_target_incremental_pull/dbo/INVENTORY_SUPPLIER3_CACHE TGT
+&#x9;&#x9;&#x9;ON  (
+&#x9;&#x9;&#x9;&#x9;SRC.ProductID = TGT.ProductID
+&#x9;&#x9;&#x9;&#x9;AND
+&#x9;&#x9;&#x9;&#x9;SRC.SupplierID = TGT.SupplierID
+&#x9;&#x9;&#x9;)&#x9;&#x9;&#x9;
+&#x9;&#x9;&#x9;WHERE (
+&#x9;&#x9;&#x9;&#x9;TGT.ProductID IS NULL
+&#x9;&#x9;&#x9;&#x9;AND
+&#x9;&#x9;&#x9;&#x9;TGT.SupplierID IS NULL
+&#x9;&#x9;&#x9;)
+&#x9;;
+&#x9;CALL /lib/debug/log(&apos;sCRUDRefreshCacheTransaction: Completed Insert Operations&apos;);
+
+&#x9;-- Now DELETE any rows from the cache that no longer exist in the source data
+&#x9;CALL /lib/debug/log(&apos;sCRUDRefreshCacheTransaction: Beginning Delete Operations&apos;);
+&#x9;DELETE FROM
+&#x9;&#x9;&#x9;/shared/CE_tutorials/IncrementalCaching/Incremental_Pull/INCR_PULL_CACHE_DB/cache_target_incremental_pull/dbo/INVENTORY_SUPPLIER3_CACHE
+&#x9;&#x9;WHERE 
+&#x9;&#x9;&#x9;CONCAT(CAST(CAST(SupplierID AS INTEGER) AS VARCHAR), CAST(CAST(ProductID AS INTEGER) AS VARCHAR)) IN (
+&#x9;&#x9;&#x9;&#x9;SELECT {option DISABLE_DATA_CACHE} -- ignore cache, we need the data from the source
+&#x9;&#x9;&#x9;&#x9;&#x9;CONCAT(CAST(CAST(TGT.SupplierID AS INTEGER) AS VARCHAR), CAST(CAST(TGT.ProductID AS INTEGER) AS VARCHAR))
+&#x9;&#x9;&#x9;&#x9;FROM
+&#x9;&#x9;&#x9;&#x9;&#x9;/shared/CE_tutorials/IncrementalCaching/Incremental_Pull/Views/L2_Business/vINVENTORY_SUPPLIER3 SRC
+&#x9;&#x9;&#x9;&#x9;&#x9;RIGHT OUTER JOIN
+&#x9;&#x9;&#x9;&#x9;&#x9;/shared/CE_tutorials/IncrementalCaching/Incremental_Pull/INCR_PULL_CACHE_DB/cache_target_incremental_pull/dbo/INVENTORY_SUPPLIER3_CACHE TGT
+&#x9;&#x9;&#x9;&#x9;ON  (
+&#x9;&#x9;&#x9;&#x9;&#x9;SRC.ProductID = TGT.ProductID
+&#x9;&#x9;&#x9;&#x9;&#x9;AND
+&#x9;&#x9;&#x9;&#x9;&#x9;SRC.SupplierID = TGT.SupplierID
+&#x9;&#x9;&#x9;&#x9;)&#x9;&#x9;&#x9;
+&#x9;&#x9;&#x9;&#x9;WHERE (
+&#x9;&#x9;&#x9;&#x9;&#x9;SRC.ProductID IS NULL
+&#x9;&#x9;&#x9;&#x9;&#x9;AND
+&#x9;&#x9;&#x9;&#x9;&#x9;SRC.SupplierID IS NULL
+&#x9;&#x9;&#x9;&#x9;&#x9;AND
+&#x9;&#x9;&#x9;&#x9;&#x9;TGT.cacheKey = environmentCacheKey
+&#x9;&#x9;&#x9;&#x9;)
+&#x9;&#x9;&#x9;)
+&#x9;;
+&#x9;CALL /lib/debug/log(&apos;sCRUDRefreshCacheTransaction: Completed Delete Operations&apos;);&#x9;&#x9;
+
+&#x9;-- Now Update any existing rows in the cache that have changed in the source data
+&#x9;CALL /lib/debug/log(&apos;sCRUDRefreshCacheTransaction: Beginning Update Operations&apos;);
+
+&#x9;MERGE /shared/CE_tutorials/IncrementalCaching/Incremental_Pull/INCR_PULL_CACHE_DB/cache_target_incremental_pull/dbo/INVENTORY_SUPPLIER3_CACHE AS TGT
+&#x9;&#x9;USING /shared/CE_tutorials/IncrementalCaching/Incremental_Pull/Views/L2_Business/vINVENTORY_SUPPLIER3_NO_CACHE AS SRC
+&#x9;&#x9;ON (
+&#x9;&#x9;&#x9;SRC.ProductID = TGT.ProductID
+&#x9;&#x9;&#x9;AND
+&#x9;&#x9;&#x9;SRC.SupplierID = TGT.SupplierID)
+&#x9;&#x9;WHEN MATCHED AND 
+&#x9;&#x9;&#x9;TGT.cacheKey = environmentCacheKey
+&#x9;&#x9;&#x9;AND (
+&#x9;&#x9;&#x9;SRC.ProductName &lt;&gt; CAST( TGT.ProductName AS VARCHAR(32767) )
+&#x9;&#x9;&#x9;OR SRC.UnitPrice &lt;&gt; TGT.UnitPrice
+&#x9;&#x9;&#x9;OR SRC.ReorderLevel &lt;&gt; TGT.ReorderLevel
+&#x9;&#x9;&#x9;OR SRC.LeadTime &lt;&gt; CAST( TGT.LeadTime AS VARCHAR(32767) )
+&#x9;&#x9;&#x9;OR SRC.SupplierID1 &lt;&gt; TGT.SupplierID1
+&#x9;&#x9;&#x9;OR SRC.SupplierName &lt;&gt; CAST( TGT.SupplierName AS VARCHAR(32767) )
+&#x9;&#x9;&#x9;OR SRC.SupplierContactName &lt;&gt; CAST( TGT.SupplierContactName AS VARCHAR(32767) )
+&#x9;&#x9;&#x9;OR SRC.SupplierPhoneNumber &lt;&gt; CAST( TGT.SupplierPhoneNumber AS VARCHAR(32767) )
+&#x9;&#x9;)
+&#x9;&#x9;&#x9;THEN UPDATE SET
+&#x9;&#x9;&#x9;&#x9;TGT.ProductName = SRC.ProductName,
+&#x9;&#x9;&#x9;&#x9;TGT.UnitPrice = SRC.UnitPrice,
+&#x9;&#x9;&#x9;&#x9;TGT.ReorderLevel = SRC.ReorderLevel,
+&#x9;&#x9;&#x9;&#x9;TGT.LeadTime = SRC.LeadTime,
+&#x9;&#x9;&#x9;&#x9;TGT.SupplierID1 = SRC.SupplierID1,
+&#x9;&#x9;&#x9;&#x9;TGT.SupplierName = SRC.SupplierName,
+&#x9;&#x9;&#x9;&#x9;TGT.SupplierContactName = SRC.SupplierContactName,
+&#x9;&#x9;&#x9;&#x9;TGT.SupplierPhoneNumber = SRC.SupplierPhoneNumber;
+
+&#x9;CALL /lib/debug/log(&apos;sCRUDRefreshCacheTransaction: Completed Update Operations&apos;);
+
+&#x9;-- Update incremental maintenance level
+&#x9;SET IncrementalMaintenanceLevel = CAST(maintLevelWork AS VARCHAR);
+
+&#x9;-- Log successful completion of script execution
+&#x9;CALL /lib/debug/log(&apos;Successful completion of script sCRUDRefreshCacheTransaction&apos;);
+
+&#x9;-- Catch and handle all exceptions
+&#x9;EXCEPTION
+&#x9;&#x9;ELSE
+&#x9;&#x9;&#x9;-- Log the exception
+&#x9;&#x9;&#x9;CALL /lib/debug/log(&apos;Exception raised in sCRUDRefreshCacheTransaction script&apos;);
+&#x9;&#x9;&#x9;CALL /lib/debug/log(&apos;Exception is : &apos; || CURRENT_EXCEPTION.NAME || &apos;: &apos; ||
+&#x9;&#x9;&#x9;&#x9;CURRENT_EXCEPTION.MESSAGE);
+&#x9;&#x9;&#x9;&#x9;
+&#x9;&#x9;&#x9;-- Don&apos;t advance the incremental maintenance level on a failure, just return previous value
+&#x9;&#x9;&#x9;CALL /lib/util/GetEnvironment(&apos;System.CACHED_RESOURCE_INCREMENTAL_MAINTENANCE_LEVEL&apos;,
+&#x9;&#x9;&#x9;&#x9;IncrementalMaintenanceLevel);
+&#x9;&#x9;&#x9;CALL /lib/debug/Log(&apos;IncrementalMaintenanceLevel after exception in sCRUDRefreshCacheTransaction script = &apos; ||
+&#x9;&#x9;&#x9;&#x9;IncrementalMaintenanceLevel);
+&#x9;&#x9;&#x9;CALL /lib/debug/Log(&apos;Failed completion of script sCRUDRefreshCacheTransaction&apos;);
+
+END</attribute>
+  <attribute name="creationDate" type="LONG">1469630362025</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1611316510337</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="native_only" type="STRING">false</attribute>
+  <attribute name="references" type="NULL"/>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1469630362025</attribute>
+</metadata>

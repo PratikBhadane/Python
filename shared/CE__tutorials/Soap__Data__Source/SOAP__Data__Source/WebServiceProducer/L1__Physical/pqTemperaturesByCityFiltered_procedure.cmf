@@ -1,0 +1,69 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="pqTemperaturesByCityFiltered" path="/shared/CE_tutorials/Soap_Data_Source/SOAP_Data_Source/WebServiceProducer/L1_Physical/pqTemperaturesByCityFiltered" type="PROCEDURE" subtype="SQL_SCRIPT_PROCEDURE" changeToken="0">
+  <parameters>
+    <parameter name="minTemp" direction="IN" nullable="true">
+      <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+    </parameter>
+    <parameter name="result" direction="OUT" nullable="true">
+      <datatype name="result" type="TABLE" refId="256">
+        <element name="City">
+          <datatype name="VARCHAR" type="STRING" maxLength="32767"/>
+        </element>
+        <element name="Date">
+          <datatype name="DATE" type="DATE"/>
+        </element>
+        <element name="HighTemp">
+          <datatype name="DOUBLE" type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+        </element>
+      </datatype>
+    </parameter>
+  </parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/shared/CE_tutorials/Soap_Data_Source/SOAP_Data_Source/WebServiceProducer/L1_Physical/vwTemperaturesByCity" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="City">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="Date">
+        <datatype type="DATE"/>
+      </element>
+      <element name="HighTemp">
+        <datatype type="FLOAT"/>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="Script" type="STRING">PROCEDURE pqTemperaturesByCityFiltered
+(
+&#x9;IN  minTemp INTEGER,
+    OUT result CURSOR 
+&#x9;(
+        City VARCHAR(32767), 
+        &quot;Date&quot; DATE, 
+        HighTemp DOUBLE
+    )
+)
+    BEGIN
+        OPEN result FOR 
+            SELECT 
+                vwTemperaturesByCity.City, 
+                vwTemperaturesByCity.&quot;Date&quot;, 
+                vwTemperaturesByCity.HighTemp
+            FROM      
+                /shared/CE_tutorials/Soap_Data_Source/SOAP_Data_Source/WebServiceProducer/L1_Physical/vwTemperaturesByCity vwTemperaturesByCity
+&#x9;&#x9;&#x9;WHERE
+&#x9;&#x9;&#x9;&#x9;HighTemp &gt; minTemp;
+    END</attribute>
+  <attribute name="creationDate" type="LONG">1418325574379</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1426619248724</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="native_only" type="STRING">false</attribute>
+  <attribute name="references" type="NULL"/>
+</metadata>

@@ -1,0 +1,65 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="Pokemon" path="/shared/CE_tutorials/Rest_Data_Source/POke/Pokemon" type="DATA_SOURCE" subtype="NONE" changeToken="0">
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/shared/CE_tutorials/Rest_Data_Source/POke/Pokemon/getAbilityDefinitions" type="DEFINITION_SET">
+    <datatype name="Tree" type="TREE" refId="257"></datatype>
+  </dependency>
+  <dependency target="/shared/CE_tutorials/Rest_Data_Source/POke/Pokemon/getBerriesDefinitions" type="DEFINITION_SET">
+    <datatype name="Tree" type="TREE" refId="257"></datatype>
+  </dependency>
+  <dependency target="/shared/CE_tutorials/Rest_Data_Source/POke/Pokemon/getGenerationDefinitions" type="DEFINITION_SET">
+    <datatype name="Tree" type="TREE" refId="257"></datatype>
+  </dependency>
+  <dependency target="/shared/CE_tutorials/Rest_Data_Source/POke/Pokemon/getItemDefinitions" type="DEFINITION_SET">
+    <datatype name="Tree" type="TREE" refId="257"></datatype>
+  </dependency>
+  <dependency target="/shared/CE_tutorials/Rest_Data_Source/POke/Pokemon/getPokemonDefinitions" type="DEFINITION_SET">
+    <datatype name="Tree" type="TREE" refId="257"></datatype>
+  </dependency>
+  <dependency target="/shared/CE_tutorials/Rest_Data_Source/POke/Pokemon/getPokemonsDefinitions" type="DEFINITION_SET">
+    <datatype name="Tree" type="TREE" refId="257"></datatype>
+  </dependency>
+  <attribute name="BadgerFish" type="STRING">false</attribute>
+  <attribute name="JSONFormat" type="STRING">true</attribute>
+  <attribute name="OAuthConfig" type="NULL"/>
+  <attribute name="PackageName" type="STRING"/>
+  <attribute name="PrimitiveValue" type="STRING">false</attribute>
+  <attribute name="RestOperations" type="STRING">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;&lt;bindingModel&gt;&lt;portBindings&gt;&lt;portBinding xsi:type=&quot;restfulPortBinding&quot; serviceName=&quot;getAbility&quot; jsonWrappedTable=&quot;true&quot; jsonWrappedCursor=&quot;true&quot; jsonValidateXml=&quot;true&quot; jsonUseProcParamName=&quot;false&quot; jsonFieldAsString=&quot;false&quot; jsonBareValue=&quot;false&quot; enabled=&quot;false&quot; bindingStyles=&quot;&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;&lt;operationBindings&gt;&lt;operationBinding xsi:type=&quot;restfulProcedureBinding&quot; operationPathTemplate=&quot;ability/{ability}/&quot; httpMethod=&quot;GET&quot; resourceName=&quot;getAbility&quot; requestWrapperQName=&quot;&quot; parameterStyle=&quot;BARE&quot; responseWrapperQName=&quot;&quot;&gt;&lt;parameterBindings&gt;&lt;parameterBinding xsi:type=&quot;restfulParameterBinding&quot; xml=&quot;false&quot; parameterFormat=&quot;JSON&quot; nulLable=&quot;false&quot; name=&quot;ability&quot; inOut=&quot;IN&quot; dataType=&quot;VARCHAR&quot; isUrl=&quot;true&quot; location=&quot;URL&quot; maxLength=&quot;255&quot;/&gt;&lt;parameterBinding xsi:type=&quot;restfulParameterBinding&quot; xml=&quot;false&quot; parameterFormat=&quot;XML&quot; nulLable=&quot;false&quot; name=&quot;getAbility&quot; definitionName=&quot;wrapper&quot; inOut=&quot;OUT&quot; dataType=&quot;DEFINITION&quot; isUrl=&quot;false&quot; location=&quot;Body&quot; definitionStr=&quot;/shared/CE_tutorials/Rest_Data_Source/POke/Pokemon/getAbilityDefinitions/wrapper&quot;/&gt;&lt;/parameterBindings&gt;&lt;/operationBinding&gt;&lt;/operationBindings&gt;&lt;/portBinding&gt;&lt;portBinding xsi:type=&quot;restfulPortBinding&quot; serviceName=&quot;getBerries&quot; jsonWrappedTable=&quot;true&quot; jsonWrappedCursor=&quot;true&quot; jsonValidateXml=&quot;true&quot; jsonUseProcParamName=&quot;false&quot; jsonFieldAsString=&quot;false&quot; jsonBareValue=&quot;false&quot; enabled=&quot;false&quot; bindingStyles=&quot;&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;&lt;operationBindings&gt;&lt;operationBinding xsi:type=&quot;restfulProcedureBinding&quot; operationPathTemplate=&quot;berry&quot; httpMethod=&quot;GET&quot; resourceName=&quot;getBerries&quot; requestWrapperQName=&quot;&quot; parameterStyle=&quot;BARE&quot; responseWrapperQName=&quot;&quot;&gt;&lt;parameterBindings&gt;&lt;parameterBinding xsi:type=&quot;restfulParameterBinding&quot; xml=&quot;false&quot; parameterFormat=&quot;XML&quot; nulLable=&quot;false&quot; name=&quot;getBerries&quot; definitionName=&quot;wrapper&quot; inOut=&quot;OUT&quot; dataType=&quot;DEFINITION&quot; isUrl=&quot;false&quot; location=&quot;Body&quot; definitionStr=&quot;/shared/CE_tutorials/Rest_Data_Source/POke/Pokemon/getBerriesDefinitions/wrapper&quot;/&gt;&lt;/parameterBindings&gt;&lt;/operationBinding&gt;&lt;/operationBindings&gt;&lt;/portBinding&gt;&lt;portBinding xsi:type=&quot;restfulPortBinding&quot; serviceName=&quot;getGeneration&quot; jsonWrappedTable=&quot;true&quot; jsonWrappedCursor=&quot;true&quot; jsonValidateXml=&quot;true&quot; jsonUseProcParamName=&quot;false&quot; jsonFieldAsString=&quot;false&quot; jsonBareValue=&quot;false&quot; enabled=&quot;false&quot; bindingStyles=&quot;&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;&lt;operationBindings&gt;&lt;operationBinding xsi:type=&quot;restfulProcedureBinding&quot; operationPathTemplate=&quot;generation&quot; httpMethod=&quot;GET&quot; resourceName=&quot;getGeneration&quot; requestWrapperQName=&quot;&quot; parameterStyle=&quot;BARE&quot; responseWrapperQName=&quot;&quot;&gt;&lt;parameterBindings&gt;&lt;parameterBinding xsi:type=&quot;restfulParameterBinding&quot; xml=&quot;false&quot; parameterFormat=&quot;XML&quot; nulLable=&quot;false&quot; name=&quot;getGeneration&quot; definitionName=&quot;wrapper&quot; inOut=&quot;OUT&quot; dataType=&quot;DEFINITION&quot; isUrl=&quot;false&quot; location=&quot;Body&quot; definitionStr=&quot;/shared/CE_tutorials/Rest_Data_Source/POke/Pokemon/getGenerationDefinitions/wrapper&quot;/&gt;&lt;/parameterBindings&gt;&lt;/operationBinding&gt;&lt;/operationBindings&gt;&lt;/portBinding&gt;&lt;portBinding xsi:type=&quot;restfulPortBinding&quot; serviceName=&quot;getItem&quot; jsonWrappedTable=&quot;true&quot; jsonWrappedCursor=&quot;true&quot; jsonValidateXml=&quot;true&quot; jsonUseProcParamName=&quot;false&quot; jsonFieldAsString=&quot;false&quot; jsonBareValue=&quot;false&quot; enabled=&quot;false&quot; bindingStyles=&quot;&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;&lt;operationBindings&gt;&lt;operationBinding xsi:type=&quot;restfulProcedureBinding&quot; operationPathTemplate=&quot;item&quot; httpMethod=&quot;GET&quot; resourceName=&quot;getItem&quot; requestWrapperQName=&quot;&quot; parameterStyle=&quot;BARE&quot; responseWrapperQName=&quot;&quot;&gt;&lt;parameterBindings&gt;&lt;parameterBinding xsi:type=&quot;restfulParameterBinding&quot; xml=&quot;false&quot; parameterFormat=&quot;XML&quot; nulLable=&quot;false&quot; name=&quot;getItems&quot; definitionName=&quot;wrapper&quot; inOut=&quot;OUT&quot; dataType=&quot;DEFINITION&quot; isUrl=&quot;false&quot; location=&quot;Body&quot; definitionStr=&quot;/shared/CE_tutorials/Rest_Data_Source/POke/Pokemon/getItemDefinitions/wrapper&quot;/&gt;&lt;/parameterBindings&gt;&lt;/operationBinding&gt;&lt;/operationBindings&gt;&lt;/portBinding&gt;&lt;portBinding xsi:type=&quot;restfulPortBinding&quot; serviceName=&quot;getPokemon&quot; jsonWrappedTable=&quot;true&quot; jsonWrappedCursor=&quot;true&quot; jsonValidateXml=&quot;true&quot; jsonUseProcParamName=&quot;false&quot; jsonFieldAsString=&quot;false&quot; jsonBareValue=&quot;false&quot; enabled=&quot;false&quot; bindingStyles=&quot;&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;&lt;operationBindings&gt;&lt;operationBinding xsi:type=&quot;restfulProcedureBinding&quot; operationPathTemplate=&quot;pokemon/{pokeID}/&quot; httpMethod=&quot;GET&quot; resourceName=&quot;getPokemon&quot; requestWrapperQName=&quot;&quot; parameterStyle=&quot;BARE&quot; responseWrapperQName=&quot;&quot;&gt;&lt;parameterBindings&gt;&lt;parameterBinding xsi:type=&quot;restfulParameterBinding&quot; xml=&quot;false&quot; parameterFormat=&quot;JSON&quot; nulLable=&quot;false&quot; name=&quot;pokeID&quot; inOut=&quot;IN&quot; dataType=&quot;VARCHAR&quot; isUrl=&quot;true&quot; location=&quot;URL&quot; maxLength=&quot;255&quot;/&gt;&lt;parameterBinding xsi:type=&quot;restfulParameterBinding&quot; xml=&quot;false&quot; parameterFormat=&quot;XML&quot; nulLable=&quot;false&quot; name=&quot;getPokemon&quot; definitionName=&quot;wrapper&quot; inOut=&quot;OUT&quot; dataType=&quot;DEFINITION&quot; isUrl=&quot;false&quot; location=&quot;Body&quot; definitionStr=&quot;/shared/CE_tutorials/Rest_Data_Source/POke/Pokemon/getPokemonDefinitions/wrapper&quot;/&gt;&lt;/parameterBindings&gt;&lt;/operationBinding&gt;&lt;/operationBindings&gt;&lt;/portBinding&gt;&lt;portBinding xsi:type=&quot;restfulPortBinding&quot; serviceName=&quot;getPokemons&quot; jsonWrappedTable=&quot;true&quot; jsonWrappedCursor=&quot;true&quot; jsonValidateXml=&quot;true&quot; jsonUseProcParamName=&quot;false&quot; jsonFieldAsString=&quot;false&quot; jsonBareValue=&quot;false&quot; enabled=&quot;false&quot; bindingStyles=&quot;&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;&lt;operationBindings&gt;&lt;operationBinding xsi:type=&quot;restfulProcedureBinding&quot; operationPathTemplate=&quot;pokemon?limit={limit}&amp;amp;offset={offset}&quot; httpMethod=&quot;GET&quot; resourceName=&quot;getPokemons&quot; requestWrapperQName=&quot;&quot; parameterStyle=&quot;BARE&quot; responseWrapperQName=&quot;&quot;&gt;&lt;parameterBindings&gt;&lt;parameterBinding xsi:type=&quot;restfulParameterBinding&quot; xml=&quot;false&quot; parameterFormat=&quot;JSON&quot; nulLable=&quot;false&quot; name=&quot;limit&quot; inOut=&quot;IN&quot; dataType=&quot;INTEGER&quot; isUrl=&quot;true&quot; location=&quot;URL&quot;/&gt;&lt;parameterBinding xsi:type=&quot;restfulParameterBinding&quot; xml=&quot;false&quot; parameterFormat=&quot;JSON&quot; nulLable=&quot;false&quot; name=&quot;offset&quot; inOut=&quot;IN&quot; dataType=&quot;INTEGER&quot; isUrl=&quot;true&quot; location=&quot;URL&quot;/&gt;&lt;parameterBinding xsi:type=&quot;restfulParameterBinding&quot; xml=&quot;false&quot; parameterFormat=&quot;XML&quot; nulLable=&quot;false&quot; name=&quot;getPokemons&quot; definitionName=&quot;wrapper&quot; inOut=&quot;OUT&quot; dataType=&quot;DEFINITION&quot; isUrl=&quot;false&quot; location=&quot;Body&quot; definitionStr=&quot;/shared/CE_tutorials/Rest_Data_Source/POke/Pokemon/getPokemonsDefinitions/wrapper&quot;/&gt;&lt;/parameterBindings&gt;&lt;/operationBinding&gt;&lt;/operationBindings&gt;&lt;/portBinding&gt;&lt;/portBindings&gt;&lt;/bindingModel&gt;</attribute>
+  <attribute name="accessToken" type="STRING"/>
+  <attribute name="authentication" type="STRING">BASIC</attribute>
+  <attribute name="autoAddChildren" type="BOOLEAN">true</attribute>
+  <attribute name="cacheStatusAndTrackingDS" type="STRING"/>
+  <attribute name="cacheStatusTable" type="STRING"/>
+  <attribute name="cacheTrackingTable" type="STRING"/>
+  <attribute name="chunkedTransferCoding" type="BOOLEAN">false</attribute>
+  <attribute name="creationDate" type="LONG">1580162641763</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="domain" type="STRING"/>
+  <attribute name="driverName" type="STRING">REST</attribute>
+  <attribute name="encodeUrl" type="BOOLEAN">false</attribute>
+  <attribute name="environmentPassThrough" type="STRING"/>
+  <attribute name="execTimeout" type="LONG">0</attribute>
+  <attribute name="isPassThrough" type="STRING">Disabled</attribute>
+  <attribute name="jsonResponseWrapper" type="STRING">wrapper</attribute>
+  <attribute name="keystore" type="MAP"></attribute>
+  <attribute name="lastModifiedDate" type="LONG">1593725378225</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="login" type="STRING"/>
+  <attribute name="name" type="STRING">Pokemon</attribute>
+  <attribute name="noPresentCert" type="BOOLEAN">false</attribute>
+  <attribute name="persistPassword" type="BOOLEAN">true</attribute>
+  <attribute name="propertyPassThrough" type="STRING"/>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1580162641763</attribute>
+  <attribute name="retrieveToken" type="STRING">true</attribute>
+  <attribute name="spn" type="STRING"/>
+  <attribute name="type" type="STRING">Rest</attribute>
+  <attribute name="url" type="STRING">https://pokeapi.co/api/v2/</attribute>
+  <attribute name="userDeletedSet" type="SET"></attribute>
+</metadata>

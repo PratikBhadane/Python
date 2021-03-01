@@ -1,0 +1,50 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="Demoette_Trigger_WriteMe.txt" path="/shared/CE_tutorials/Triggers/Triggers/UserDefinedEvent/Trigger_Result/Demoette_Trigger_WriteMe.txt" type="TABLE" subtype="DELIMITED_FILE" changeToken="0" tableType="NONE">
+  <columns>
+    <column name="COMMENT" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="32768"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name=" WRITE_TIME" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="32768"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name=" EVENT_NAME" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="32768"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name=" EVENT_VALUE" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="32768"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+  </columns>
+  <indexes></indexes>
+  <foreignKeys></foreignKeys>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <attribute name="charset" type="STRING">iso-8859-1</attribute>
+  <attribute name="creationDate" type="LONG">1435156308310</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="delimiter" type="STRING">,</attribute>
+  <attribute name="hasHeaders" type="BOOLEAN">true</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1435156308310</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="path" type="STRING">\Demoette_Trigger_WriteMe.txt</attribute>
+  <attribute name="qualifier" type="STRING">&quot;</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1435156308310</attribute>
+  <attribute name="startRow" type="INTEGER">1</attribute>
+</metadata>

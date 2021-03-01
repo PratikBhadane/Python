@@ -1,0 +1,70 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="vwTempsAll" path="/shared/CE_tutorials/Soap_Data_Source/SOAP_Data_Source/AugmentedDataWarehouse/WebServiceAugmentations/L2_WrapAsView/vwTempsAll" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
+  <columns>
+    <column name="City" nullable="true">
+      <datatype type="STRING" maxLength="255"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="Date" nullable="true">
+      <datatype type="DATE"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+    <column name="HighTemp" nullable="true">
+      <datatype type="DECIMAL" maxDigits="32" maxFractionalDigits="2"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+  </columns>
+  <indexes></indexes>
+  <foreignKeys></foreignKeys>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/shared/CE_tutorials/Soap_Data_Source/SOAP_Data_Source/AugmentedDataWarehouse/WebServiceAugmentations/L1_TransformToCursor/xformGetTempsAllToCursor" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="258">
+      <element name="TemperaturesByCityALL" direction="IN" nullable="false">
+        <datatype name="TemperaturesByCityALL" namespace="http://tempuri.org/" referenceDefinitionSet="/shared/CE_tutorials/Soap_Data_Source/SOAP_Data_Source/AugmentedDataWarehouse/WebServiceAugmentations/TemperatureWebService/Definitions" referenceType="{http://tempuri.org/}TemperaturesByCityALL" subType="ELEMENT_DECL" type="XML" contentConstraint="SEQUENCE" schemaConstraint="ANY" componentType="ELEMENT" componentName="{http://tempuri.org/}TemperaturesByCityALL">
+          <schemaDatatype>
+            <datatype name="TemperaturesByCityALL" type="TREE" refId="257"></datatype>
+          </schemaDatatype>
+        </datatype>
+      </element>
+      <element name="TempsByCityAll" direction="OUT" nullable="false">
+        <datatype type="TABLE" refId="256">
+          <element name="City" nullable="false">
+            <datatype type="STRING" maxLength="255"/>
+          </element>
+          <element name="Date" nullable="false">
+            <datatype type="DATE"/>
+          </element>
+          <element name="HighTemp" nullable="false">
+            <datatype type="DECIMAL" maxDigits="32" maxFractionalDigits="2"/>
+          </element>
+        </datatype>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="SQL" type="STRING">SELECT 
+    xformGetTempsAllToCursor.City, 
+    xformGetTempsAllToCursor.&quot;Date&quot;, 
+    xformGetTempsAllToCursor.HighTemp
+FROM      
+    /shared/CE_tutorials/Soap_Data_Source/SOAP_Data_Source/AugmentedDataWarehouse/WebServiceAugmentations/L1_TransformToCursor/xformGetTempsAllToCursor(&apos;&lt;ns:TemperaturesByCityALL xmlns:ns=&quot;http://tempuri.org/&quot;&gt;&lt;ns:TemperaturesByCityALLInput&gt;?&lt;/ns:TemperaturesByCityALLInput&gt;&lt;/ns:TemperaturesByCityALL&gt;&apos;) xformGetTempsAllToCursor</attribute>
+  <attribute name="creationDate" type="LONG">1426627953556</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1426627997584</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="BYTE_ARRAY">EIEJBAAAAAEQUgYBABgAeABmAG8AcgBtAEcAZQB0AFQAZQBtAHAAcwBBAGwAbABUAG8AQwB1AHIAcwBvAHIGAgAYAHgAZgBvAHIAbQBHAGUAdABUAGUAbQBwAHMAQQBsAGwAVABvAEMAdQByAHMAbwByAwv/////Awr/////CxEACAAGAHMAaABhAHIAZQBkAAwAQwBFAF8AdAB1AHQAbwByAGkAYQBsAHMAEABTAG8AYQBwAF8ARABhAHQAYQBfAFMAbwB1AHIAYwBlABAAUwBPAEEAUABfAEQAYQB0AGEAXwBTAG8AdQByAGMAZQAWAEEAdQBnAG0AZQBuAHQAZQBkAEQAYQB0AGEAVwBhAHIAZQBoAG8AdQBzAGUAFwBXAGUAYgBTAGUAcgB2AGkAYwBlAEEAdQBnAG0AZQBuAHQAYQB0AGkAbwBuAHMAFABMADEAXwBUAHIAYQBuAHMAZgBvAHIAbQBUAG8AQwB1AHIAcwBvAHIAGAB4AGYAbwByAG0ARwBlAHQAVABlAG0AcABzAEEAbABsAFQAbwBDAHUAcgBzAG8AcgkQAAAAARBDBgIAAAoOEBAGAgAVAFQAZQBtAHAAZQByAGEAdAB1AHIAZQBzAEIAeQBDAGkAdAB5AEEATABMBiQAEwBoAHQAdABwADoALwAvAHQAZQBtAHAAdQByAGkALgBvAHIAZwAvBikAcwAvAHMAaABhAHIAZQBkAC8ARABlAG0AbwBlAHQAdABlAHMALwBTAE8AQQBQAF8ARABhAHQAYQBfAFMAbwB1AHIAYwBlAC8AQQB1AGcAbQBlAG4AdABlAGQARABhAHQAYQBXAGEAcgBlAGgAbwB1AHMAZQAvAFcAZQBiAFMAZQByAHYAaQBjAGUAQQB1AGcAbQBlAG4AdABhAHQAaQBvAG4AcwAvAFQAZQBtAHAAZQByAGEAdAB1AHIAZQBXAGUAYgBTAGUAcgB2AGkAYwBlAC8ARABlAGYAaQBuAGkAdABpAG8AbgBzBioAKgB7AGgAdAB0AHAAOgAvAC8AdABlAG0AcAB1AHIAaQAuAG8AcgBnAC8AfQBUAGUAbQBwAGUAcgBhAHQAdQByAGUAcwBCAHkAQwBpAHQAeQBBAEwATAMrAAAADgMSAAABEAY5ACoAewBoAHQAdABwADoALwAvAHQAZQBtAHAAdQByAGkALgBvAHIAZwAvAH0AVABlAG0AcABlAHIAYQB0AHUAcgBlAHMAQgB5AEMAaQB0AHkAQQBMAEwIIxAfBgIAFQBUAGUAbQBwAGUAcgBhAHQAdQByAGUAcwBCAHkAQwBpAHQAeQBBAEwATAMSAAABAQMSAAABAQETAQkUAAAAAP////8AAAAAlDxuczpUZW1wZXJhdHVyZXNCeUNpdHlBTEwgeG1sbnM6bnM9Imh0dHA6Ly90ZW1wdXJpLm9yZy8iPjxuczpUZW1wZXJhdHVyZXNCeUNpdHlBTExJbnB1dD4/PC9uczpUZW1wZXJhdHVyZXNCeUNpdHlBTExJbnB1dD48L25zOlRlbXBlcmF0dXJlc0J5Q2l0eUFMTD7/////AwUAAAAACAIQMQYB//8BAgEBBgABAwABBAABBQADBwAAAAAHCQAAAAEAAAAACQoAAAADEEEGAQAEAEMAaQB0AHkGAgAABgP//wYE//8DCv////8IDBAbBgIABwBWAEEAUgBDAEgAQQBSAxIAAAEOBAQAAAAAAAAA/wETAP//AwsAAAAA//8QQQYBAAQARABhAHQAZQYCAAAGA///BgT//wMK/////wgMEBUGAgAEAEQAQQBUAEUDEgAAAQj//wMLAAAAAP//EEEGAQAIAEgAaQBnAGgAVABlAG0AcAYCAAAGA///BgT//wMK/////wgMEBcGAgAHAEQARQBDAEkATQBBAEwDEgAAAQoDDgAAACADEAAAAAL//wMLAAAAAP////8JBgAAAAEQggMKAAAAtwMLAAAA5QMMAAAAyAMNAAAAUv//CAMQcQMBAAAACwMCAAAAMgkDAAACJhB0AwYAAAAA//8QcgYE/////xBzAwUAAAAA//8QdQEHAf//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHQDBgAAAAH//xByBgT/////EHMDBQAAAAD//xB1AQcB//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdAMGAAAAAv//EHIGBP////8QcwMFAAAAAP//EHUBBwH//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2//8QdP//EHIGBP////8Qc///EHUBBwD//xB4Bgv/////EHcDCv///////xB5Bgz/////EHb//xB2//8Qdv//EHb//xB0//8QcgYE/////xBz//8QdQEHAP//EHgGC/////8QdwMK////////EHkGDP////8Qdv//EHb//xB2//8Qdv//EHT//xByBgT/////EHP//xB1AQcA//8QeAYL/////xB3Awr///////8QeQYM/////xB2//8Qdv//EHb//xB2////////</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1426627953556</attribute>
+</metadata>

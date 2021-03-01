@@ -1,0 +1,120 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="sp_Demoette_SOAP_Client" path="/shared/CE_tutorials/SoapClient/SOAP_Client/sp_Demoette_SOAP_Client" type="PROCEDURE" subtype="SQL_SCRIPT_PROCEDURE" changeToken="0">
+  <parameters>
+    <parameter name="company_name_starts_with" direction="IN" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="240"/>
+    </parameter>
+    <parameter name="result" direction="OUT" nullable="true">
+      <datatype name="result" type="TABLE" refId="256">
+        <element name="CompanyName">
+          <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+        </element>
+        <element name="OrderID">
+          <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+        </element>
+        <element name="ProductID">
+          <datatype name="INTEGER" type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+        </element>
+        <element name="OrderDate">
+          <datatype name="DATE" type="DATE"/>
+        </element>
+      </datatype>
+    </parameter>
+  </parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/shared/CE_tutorials/SoapClient/CompositeView" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="OrderID">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="ProductID">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="Discount">
+        <datatype type="DECIMAL" maxDigits="12" minFractionalDigits="2" maxFractionalDigits="2"/>
+      </element>
+      <element name="OrderDate">
+        <datatype type="DATE"/>
+      </element>
+      <element name="CompanyName">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="CustomerContactFirstName">
+        <datatype type="STRING" maxLength="30"/>
+      </element>
+      <element name="CustomerContactLastName">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="CustomerContactPhone">
+        <datatype type="STRING" maxLength="30"/>
+      </element>
+      <element name="ProductName">
+        <datatype namespace="http://www.w3.org/2001/XMLSchema" superTypeName="anySimpleType" superTypeNamespace="http://www.w3.org/2001/XMLSchema" type="STRING" maxLength="32768"/>
+      </element>
+      <element name="TransactionID">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="DateRequired">
+        <datatype type="DATE"/>
+      </element>
+      <element name="DatePromised">
+        <datatype type="DATE"/>
+      </element>
+      <element name="ShipDate">
+        <datatype type="DATE"/>
+      </element>
+      <element name="SupplierID">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="SupplierName">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="SupplierContactName">
+        <datatype type="STRING" maxLength="50"/>
+      </element>
+      <element name="SupplierPhoneNumber">
+        <datatype type="STRING" maxLength="30"/>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="Script" type="STRING">PROCEDURE sp_Demoette_SOAP_Client
+(
+&#x9;IN company_name_starts_with VARCHAR(240),
+&#x9;OUT result CURSOR(  CompanyName VARCHAR(255), 
+&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;OrderID INTEGER, 
+&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ProductID INTEGER, 
+&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;OrderDate DATE )
+)
+BEGIN
+
+&#x9;DECLARE likeParam VARCHAR(255);
+
+&#x9;SET likeParam = company_name_starts_with || &apos;%&apos;;
+
+&#x9;OPEN result FOR
+&#x9;&#x9;SELECT 
+&#x9;&#x9;&#x9;CompanyName,
+&#x9;&#x9;&#x9;OrderID,
+&#x9;&#x9;&#x9;ProductID,
+&#x9;&#x9;&#x9;OrderDate 
+&#x9;&#x9;FROM /shared/CE_tutorials/SoapClient/CompositeView
+&#x9;&#x9;WHERE CompanyName LIKE likeParam;
+
+END</attribute>
+  <attribute name="creationDate" type="LONG">1447870788356</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1447870926260</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="native_only" type="STRING">false</attribute>
+  <attribute name="references" type="NULL"/>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1447870788356</attribute>
+</metadata>

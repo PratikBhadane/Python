@@ -1,0 +1,173 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:4e1e100d-4573-49ad-937a-615e2c997251 -->
+<metadata name="sInitialCacheTransaction" path="/shared/examples/Incremental_Pull/Procedures/sInitialCacheTransaction" type="PROCEDURE" subtype="SQL_SCRIPT_PROCEDURE" changeToken="0">
+  <parameters>
+    <parameter name="IncrementalMaintenanceLevel" direction="OUT" nullable="true">
+      <datatype name="VARCHAR" type="STRING" maxLength="255"/>
+    </parameter>
+  </parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/lib/debug/Log" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="258">
+      <element name="textToLog" direction="IN">
+        <datatype referenceDefinitionSet="/lib/util/System" referenceType="Text" type="STRING" maxLength="2147483647"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/lib/util/GetEnvironment" type="PROCEDURE">
+    <datatype type="PROCEDURE" refId="258">
+      <element name="variableName" direction="IN">
+        <datatype referenceDefinitionSet="/lib/util/System" referenceType="PropertyName" type="STRING" maxLength="255"/>
+      </element>
+      <element name="result" direction="OUT">
+        <datatype referenceDefinitionSet="/lib/util/System" referenceType="PropertyValue" type="STRING" maxLength="4096"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/examples/Incremental_Pull/INCR_PULL_CACHE_DB/cache_target_incremental_pull/dbo/INVENTORY_CACHE" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="cachekey" nullable="false">
+        <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      </element>
+      <element name="TransactionID">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="PartNumber">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="Quantity">
+        <datatype type="FLOAT" minValue="2.2250738585072014E-308" maxValue="1.7976931348623157E308"/>
+      </element>
+      <element name="TransactionDate">
+        <datatype type="DATETIME"/>
+      </element>
+      <element name="CompanyName">
+        <datatype type="CLOB" maxLength="2147483647"/>
+      </element>
+      <element name="CustomerContactFirstName">
+        <datatype type="CLOB" maxLength="2147483647"/>
+      </element>
+      <element name="CustomerContactLastName">
+        <datatype type="CLOB" maxLength="2147483647"/>
+      </element>
+      <element name="CustomerContactPhone">
+        <datatype type="CLOB" maxLength="2147483647"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/examples/Incremental_Pull/TRANSACTION_DB/TRANSACTION.xlsx/TRANSACTION" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="TransactionID">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="PartNumber">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="Quantity">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="TransactionDate">
+        <datatype type="DATETIME"/>
+      </element>
+      <element name="CompanyName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="CustomerContactFirstName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="CustomerContactLastName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="CustomerContactPhone">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+    </datatype>
+  </dependency>
+  <dependency target="/shared/examples/Incremental_Pull/Views/L1_Physical/vTRANSACTION" type="TABLE">
+    <datatype type="TABLE" refId="256">
+      <element name="TransactionID">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="PartNumber">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="Quantity">
+        <datatype type="FLOAT"/>
+      </element>
+      <element name="TransactionDate">
+        <datatype type="DATETIME"/>
+      </element>
+      <element name="CompanyName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="CustomerContactFirstName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="CustomerContactLastName">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+      <element name="CustomerContactPhone">
+        <datatype type="STRING" maxLength="32767"/>
+      </element>
+    </datatype>
+  </dependency>
+  <attribute name="Script" type="STRING">-- This is the initial load script example for incremental caching of the TRANSACTION table.
+-- This use case deals with INSERT operations only, and assumes that there are never any updates or deletes.
+PROCEDURE sInitialCacheTransaction(
+&#x9;OUT IncrementalMaintenanceLevel VARCHAR
+)
+
+BEGIN
+
+&#x9;DECLARE cacheKey BIGINT; -- Holds cacheKey value of current cache data set
+&#x9;DECLARE maxTransactionID BIGINT; -- Holds highest transaction ID in source data
+
+&#x9;-- Log beginning of script execution
+&#x9;CALL /lib/debug/log(&apos;Starting script sInitialCacheTransaction&apos;);
+&#x9;
+&#x9;-- Retrieve cache key from request environment
+&#x9;CALL /lib/util/GetEnvironment(&apos;System.CACHED_RESOURCE_CACHE_KEY&apos;, cacheKey);
+&#x9;
+&#x9;-- Determine initial incremental maintenance level (which we have defined as highest transaction ID)
+&#x9;-- Get the highest row on the data SOURCE, based on the field used for incremental caching&#x9;
+&#x9;SELECT {option DISABLE_DATA_CACHE} -- ignore cache, we need the data from the source
+&#x9;&#x9;MAX(TransactionID) 
+&#x9;&#x9;INTO maxTransactionID 
+&#x9;&#x9;FROM /shared/examples/Incremental_Pull/Views/L1_Physical/vTRANSACTION;
+
+&#x9;-- If the highest transaction ID is null (table is empty) use 0 instead
+&#x9;SET maxTransactionID = COALESCE(maxTransactionID, 0);
+&#x9;
+&#x9;-- Load cache target table&#x9;
+&#x9;INSERT INTO
+&#x9;&#x9;/shared/examples/Incremental_Pull/INCR_PULL_CACHE_DB/cache_target_incremental_pull/dbo/INVENTORY_CACHE
+&#x9;&#x9;SELECT {option DISABLE_DATA_CACHE} -- ignore cache, we need the data from the source
+&#x9;&#x9;&#x9;cacheKey, S.*
+&#x9;&#x9;&#x9;FROM
+&#x9;&#x9;&#x9;&#x9;/shared/examples/Incremental_Pull/Views/L1_Physical/vTRANSACTION S
+&#x9;&#x9;&#x9;WHERE
+&#x9;&#x9;&#x9;&#x9;TransactionID &lt;= maxTransactionID;
+&#x9;&#x9;&#x9;&#x9;
+&#x9;-- Return incremental maintenance level, which we have defined as the highest transaction ID in the cache
+&#x9;SET IncrementalMaintenanceLevel = CAST(maxTransactionID AS VARCHAR);
+
+&#x9;-- Log completion of script execution
+&#x9;CALL /lib/debug/log(&apos;Completion of script sInitialCacheTransaction&apos;);
+
+END</attribute>
+  <attribute name="creationDate" type="LONG">1469630362025</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1469640234696</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="native_only" type="STRING">false</attribute>
+  <attribute name="references" type="NULL"/>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1469630362025</attribute>
+</metadata>
